@@ -1051,6 +1051,7 @@
           <img id="123" class="hme-logo" src="{% static '/img/logo.png' %}" alt="FitMe" />
         </a>
       </div>
+      <div class="col-md-2"></div>
       <div class="col-md-6 col-xs-6 col-sm-6 col-xs-6">
         <div class="nav-header-items">
           <div class="nav-header-items--content navbarIcon">
@@ -1064,18 +1065,19 @@
           </a>-->
           </div>
           <div class="nav-header-items">
-            <a href="{% url 'bmimetric' %}" id="expertNavId" class="side-nav-text">Apply for Traineer
+            <a href="{% url 'TraineerRegister' %}" id="expertNavId" class="side-nav-text btn btn-danger">Apply for Traineer
               <span style="color: #EF4437"></span>
             </a>
-
           </div>
 
-          <div class="nav-header-items--content" id="navIcon">&#9776;</div>
+          <div class="nav-header-items--content"  id="navIcon">&#9776;</div>
+
         </div>
       </div>
     </div>
     <div id="sideNavBar" class="sidenav">
       <div class="side-nav-buttons--container">
+          <div class="nav-header-items--content"  id="navIcon">X</div>
 
         <div>
           <img src="{% static '/img/close.png' %}" class="side-nav-buttons--close" id="closeNav" alt="close button" title="close" onclick="_ga('HomePage', 'Hamburger List Click', 'Close Navigation Homepage')" />
@@ -1417,6 +1419,10 @@
           .close {
             display: none
           }
+          #navIcon {
+           display: inline;
+           right: 0;
+         }
         </style>
 
         <script>
