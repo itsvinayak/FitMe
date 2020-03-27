@@ -13,3 +13,8 @@ class TraineeRegisterForm(ModelForm):
     class Meta:
         model = Trainee
         fields = ['count_code','phone']
+
+class TrainerRegisterForm(ModelForm):
+    class Meta:
+        model = Trainer
+        fields = "__all__"

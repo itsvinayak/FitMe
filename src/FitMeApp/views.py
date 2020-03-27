@@ -8,16 +8,22 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
+from user.models import Trainer
+
 
 def home(request):
+    trainer = Trainer.objects.filter(approve=True)
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
         if user is not None:
             form = login(request, user)
-            messages.success(request, f" wecome {username} !!")
-            return render(request, 'first.html', {'user': username})
+            if username in trainer :
+                pass
+            else:
+                messages.success(request, f" wecome {username} !!")
+                return render(request, 'first.html', {'user': username})
 
         else:
             messages.info(request, f"account done not exit plz sign in")
