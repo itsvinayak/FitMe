@@ -1,0 +1,1867 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PMWZ638');
+  </script>
+  <!-- End. Google Tag Manager -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <script type="text/javascript">
+    (window.NREUM || (NREUM = {})).loader_config = {
+      xpid: "UAQCUF5QGwAAU1JWAAE=",
+      licenseKey: "73d06b4457",
+      applicationID: "3073470"
+    };
+    window.NREUM || (NREUM = {}), __nr_require = function(t, n, e) {
+      function r(e) {
+        if (!n[e]) {
+          var o = n[e] = {
+            exports: {}
+          };
+          t[e][0].call(o.exports, function(n) {
+            var o = t[e][1][n];
+            return r(o || n)
+          }, o, o.exports)
+        }
+        return n[e].exports
+      }
+      if ("function" == typeof __nr_require) return __nr_require;
+      for (var o = 0; o < e.length; o++) r(e[o]);
+      return r
+    }({
+      1: [function(t, n, e) {
+        function r(t) {
+          try {
+            c.console && console.log(t)
+          } catch (n) {}
+        }
+        var o, i = t("ee"),
+          a = t(17),
+          c = {};
+        try {
+          o = localStorage.getItem("__nr_flags").split(","), console && "function" == typeof console.log && (c.console = !0, o.indexOf("dev") !== -1 && (c.dev = !0), o.indexOf("nr_dev") !== -1 && (c.nrDev = !0))
+        } catch (s) {}
+        c.nrDev && i.on("internal-error", function(t) {
+          r(t.stack)
+        }), c.dev && i.on("fn-err", function(t, n, e) {
+          r(e.stack)
+        }), c.dev && (r("NR AGENT IN DEVELOPMENT MODE"), r("flags: " + a(c, function(t, n) {
+          return t
+        }).join(", ")))
+      }, {}],
+      2: [function(t, n, e) {
+        function r(t, n, e, r, c) {
+          try {
+            p ? p -= 1 : o(c || new UncaughtException(t, n, e), !0)
+          } catch (f) {
+            try {
+              i("ierr", [f, s.now(), !0])
+            } catch (d) {}
+          }
+          return "function" == typeof u && u.apply(this, a(arguments))
+        }
+
+        function UncaughtException(t, n, e) {
+          this.message = t || "Uncaught error with no additional information", this.sourceURL = n, this.line = e
+        }
+
+        function o(t, n) {
+          var e = n ? null : s.now();
+          i("err", [t, e])
+        }
+        var i = t("handle"),
+          a = t(18),
+          c = t("ee"),
+          s = t("loader"),
+          f = t("gos"),
+          u = window.onerror,
+          d = !1,
+          l = "nr@seenError",
+          p = 0;
+        s.features.err = !0, t(1), window.onerror = r;
+        try {
+          throw new Error
+        } catch (h) {
+          "stack" in h && (t(6), t(5), "addEventListener" in window && t(3), s.xhrWrappable && t(7), d = !0)
+        }
+        c.on("fn-start", function(t, n, e) {
+          d && (p += 1)
+        }), c.on("fn-err", function(t, n, e) {
+          d && !e[l] && (f(e, l, function() {
+            return !0
+          }), this.thrown = !0, o(e))
+        }), c.on("fn-end", function() {
+          d && !this.thrown && p > 0 && (p -= 1)
+        }), c.on("internal-error", function(t) {
+          i("ierr", [t, s.now(), !0])
+        })
+      }, {}],
+      3: [function(t, n, e) {
+        function r(t) {
+          for (var n = t; n && !n.hasOwnProperty(u);) n = Object.getPrototypeOf(n);
+          n && o(n)
+        }
+
+        function o(t) {
+          c.inPlace(t, [u, d], "-", i)
+        }
+
+        function i(t, n) {
+          return t[1]
+        }
+        var a = t("ee").get("events"),
+          c = t("wrap-function")(a, !0),
+          s = t("gos"),
+          f = XMLHttpRequest,
+          u = "addEventListener",
+          d = "removeEventListener";
+        n.exports = a, "getPrototypeOf" in Object ? (r(document), r(window), r(f.prototype)) : f.prototype.hasOwnProperty(u) && (o(window), o(f.prototype)), a.on(u + "-start", function(t, n) {
+          var e = t[1],
+            r = s(e, "nr@wrapped", function() {
+              function t() {
+                if ("function" == typeof e.handleEvent) return e.handleEvent.apply(e, arguments)
+              }
+              var n = {
+                object: t,
+                "function": e
+              } [typeof e];
+              return n ? c(n, "fn-", null, n.name || "anonymous") : e
+            });
+          this.wrapped = t[1] = r
+        }), a.on(d + "-start", function(t) {
+          t[1] = this.wrapped || t[1]
+        })
+      }, {}],
+      4: [function(t, n, e) {
+        function r(t, n, e) {
+          var r = t[n];
+          "function" == typeof r && (t[n] = function() {
+            var t = i(arguments),
+              n = {};
+            o.emit(e + "before-start", [t], n);
+            var a;
+            n[m] && n[m].dt && (a = n[m].dt);
+            var c = r.apply(this, t);
+            return o.emit(e + "start", [t, a], c), c.then(function(t) {
+              return o.emit(e + "end", [null, t], c), t
+            }, function(t) {
+              throw o.emit(e + "end", [t], c), t
+            })
+          })
+        }
+        var o = t("ee").get("fetch"),
+          i = t(18),
+          a = t(17);
+        n.exports = o;
+        var c = window,
+          s = "fetch-",
+          f = s + "body-",
+          u = ["arrayBuffer", "blob", "json", "text", "formData"],
+          d = c.Request,
+          l = c.Response,
+          p = c.fetch,
+          h = "prototype",
+          m = "nr@context";
+        d && l && p && (a(u, function(t, n) {
+          r(d[h], n, f), r(l[h], n, f)
+        }), r(c, "fetch", s), o.on(s + "end", function(t, n) {
+          var e = this;
+          if (n) {
+            var r = n.headers.get("content-length");
+            null !== r && (e.rxSize = r), o.emit(s + "done", [null, n], e)
+          } else o.emit(s + "done", [t], e)
+        }))
+      }, {}],
+      5: [function(t, n, e) {
+        var r = t("ee").get("raf"),
+          o = t("wrap-function")(r),
+          i = "equestAnimationFrame";
+        n.exports = r, o.inPlace(window, ["r" + i, "mozR" + i, "webkitR" + i, "msR" + i], "raf-"), r.on("raf-start", function(t) {
+          t[0] = o(t[0], "fn-")
+        })
+      }, {}],
+      6: [function(t, n, e) {
+        function r(t, n, e) {
+          t[0] = a(t[0], "fn-", null, e)
+        }
+
+        function o(t, n, e) {
+          this.method = e, this.timerDuration = isNaN(t[1]) ? 0 : +t[1], t[0] = a(t[0], "fn-", this, e)
+        }
+        var i = t("ee").get("timer"),
+          a = t("wrap-function")(i),
+          c = "setTimeout",
+          s = "setInterval",
+          f = "clearTimeout",
+          u = "-start",
+          d = "-";
+        n.exports = i, a.inPlace(window, [c, "setImmediate"], c + d), a.inPlace(window, [s], s + d), a.inPlace(window, [f, "clearImmediate"], f + d), i.on(s + u, r), i.on(c + u, o)
+      }, {}],
+      7: [function(t, n, e) {
+        function r(t, n) {
+          d.inPlace(n, ["onreadystatechange"], "fn-", c)
+        }
+
+        function o() {
+          var t = this,
+            n = u.context(t);
+          t.readyState > 3 && !n.resolved && (n.resolved = !0, u.emit("xhr-resolved", [], t)), d.inPlace(t, w, "fn-", c)
+        }
+
+        function i(t) {
+          y.push(t), h && (b ? b.then(a) : v ? v(a) : (E = -E, R.data = E))
+        }
+
+        function a() {
+          for (var t = 0; t < y.length; t++) r([], y[t]);
+          y.length && (y = [])
+        }
+
+        function c(t, n) {
+          return n
+        }
+
+        function s(t, n) {
+          for (var e in t) n[e] = t[e];
+          return n
+        }
+        t(3);
+        var f = t("ee"),
+          u = f.get("xhr"),
+          d = t("wrap-function")(u),
+          l = NREUM.o,
+          p = l.XHR,
+          h = l.MO,
+          m = l.PR,
+          v = l.SI,
+          g = "readystatechange",
+          w = ["onload", "onerror", "onabort", "onloadstart", "onloadend", "onprogress", "ontimeout"],
+          y = [];
+        n.exports = u;
+        var x = window.XMLHttpRequest = function(t) {
+          var n = new p(t);
+          try {
+            u.emit("new-xhr", [n], n), n.addEventListener(g, o, !1)
+          } catch (e) {
+            try {
+              u.emit("internal-error", [e])
+            } catch (r) {}
+          }
+          return n
+        };
+        if (s(p, x), x.prototype = p.prototype, d.inPlace(x.prototype, ["open", "send"], "-xhr-", c), u.on("send-xhr-start", function(t, n) {
+            r(t, n), i(n)
+          }), u.on("open-xhr-start", r), h) {
+          var b = m && m.resolve();
+          if (!v && !m) {
+            var E = 1,
+              R = document.createTextNode(E);
+            new h(a).observe(R, {
+              characterData: !0
+            })
+          }
+        } else f.on("fn-end", function(t) {
+          t[0] && t[0].type === g || a()
+        })
+      }, {}],
+      8: [function(t, n, e) {
+        function r() {
+          var t = window.NREUM;
+          if (!t.loader_config) return null;
+          var n = (t.loader_config.accountID || "").toString() || null,
+            e = (t.loader_config.agentID || "").toString() || null,
+            r = (t.loader_config.trustKey || "").toString() || null;
+          if (!n || !e) return null;
+          var a = i.generateCatId(),
+            c = i.generateCatId(),
+            s = Date.now(),
+            f = o(a, c, s, n, e, r);
+          return {
+            header: f,
+            guid: a,
+            traceId: c,
+            timestamp: s
+          }
+        }
+
+        function o(t, n, e, r, o, i) {
+          var a = "btoa" in window && "function" == typeof window.btoa;
+          if (!a) return null;
+          var c = {
+            v: [0, 1],
+            d: {
+              ty: "Browser",
+              ac: r,
+              ap: o,
+              id: t,
+              tr: n,
+              ti: e
+            }
+          };
+          return i && r !== i && (c.d.tk = i), btoa(JSON.stringify(c))
+        }
+        var i = t(15);
+        n.exports = {
+          generateTracePayload: r,
+          generateTraceHeader: o
+        }
+      }, {}],
+      9: [function(t, n, e) {
+        function r(t) {
+          var n = this.params,
+            e = this.metrics;
+          if (!this.ended) {
+            this.ended = !0;
+            for (var r = 0; r < p; r++) t.removeEventListener(l[r], this.listener, !1);
+            n.aborted || (e.duration = c.now() - this.startTime, this.loadCaptureCalled || 4 !== t.readyState ? null == n.status && (n.status = 0) : a(this, t), e.cbTime = this.cbTime, d.emit("xhr-done", [t], t), s("xhr", [n, e, this
+              .startTime
+            ]))
+          }
+        }
+
+        function o(t, n) {
+          var e = t.responseType;
+          if ("json" === e && null !== n) return n;
+          var r = "arraybuffer" === e || "blob" === e || "json" === e ? t.response : t.responseText;
+          return v(r)
+        }
+
+        function i(t, n) {
+          var e = f(n),
+            r = t.params;
+          r.host = e.hostname + ":" + e.port, r.pathname = e.pathname, t.sameOrigin = e.sameOrigin
+        }
+
+        function a(t, n) {
+          t.params.status = n.status;
+          var e = o(n, t.lastSize);
+          if (e && (t.metrics.rxSize = e), t.sameOrigin) {
+            var r = n.getResponseHeader("X-NewRelic-App-Data");
+            r && (t.params.cat = r.split(", ").pop())
+          }
+          t.loadCaptureCalled = !0
+        }
+        var c = t("loader");
+        if (c.xhrWrappable) {
+          var s = t("handle"),
+            f = t(10),
+            u = t(8).generateTracePayload,
+            d = t("ee"),
+            l = ["load", "error", "abort", "timeout"],
+            p = l.length,
+            h = t("id"),
+            m = t(13),
+            v = t(12),
+            g = window.XMLHttpRequest;
+          c.features.xhr = !0, t(7), t(4), d.on("new-xhr", function(t) {
+            var n = this;
+            n.totalCbs = 0, n.called = 0, n.cbTime = 0, n.end = r, n.ended = !1, n.xhrGuids = {}, n.lastSize = null, n.loadCaptureCalled = !1, t.addEventListener("load", function(e) {
+              a(n, t)
+            }, !1), m && (m > 34 || m < 10) || window.opera || t.addEventListener("progress", function(t) {
+              n.lastSize = t.loaded
+            }, !1)
+          }), d.on("open-xhr-start", function(t) {
+            this.params = {
+              method: t[0]
+            }, i(this, t[1]), this.metrics = {}
+          }), d.on("open-xhr-end", function(t, n) {
+            "loader_config" in NREUM && "xpid" in NREUM.loader_config && this.sameOrigin && n.setRequestHeader("X-NewRelic-ID", NREUM.loader_config.xpid);
+            var e = !1;
+            if ("init" in NREUM && "distributed_tracing" in NREUM.init && (e = !!NREUM.init.distributed_tracing.enabled), e && this.sameOrigin) {
+              var r = u();
+              r && r.header && (n.setRequestHeader("newrelic", r.header), this.dt = r)
+            }
+          }), d.on("send-xhr-start", function(t, n) {
+            var e = this.metrics,
+              r = t[0],
+              o = this;
+            if (e && r) {
+              var i = v(r);
+              i && (e.txSize = i)
+            }
+            this.startTime = c.now(), this.listener = function(t) {
+              try {
+                "abort" !== t.type || o.loadCaptureCalled || (o.params.aborted = !0), ("load" !== t.type || o.called === o.totalCbs && (o.onloadCalled || "function" != typeof n.onload)) && o.end(n)
+              } catch (e) {
+                try {
+                  d.emit("internal-error", [e])
+                } catch (r) {}
+              }
+            };
+            for (var a = 0; a < p; a++) n.addEventListener(l[a], this.listener, !1)
+          }), d.on("xhr-cb-time", function(t, n, e) {
+            this.cbTime += t, n ? this.onloadCalled = !0 : this.called += 1, this.called !== this.totalCbs || !this.onloadCalled && "function" == typeof e.onload || this.end(e)
+          }), d.on("xhr-load-added", function(t, n) {
+            var e = "" + h(t) + !!n;
+            this.xhrGuids && !this.xhrGuids[e] && (this.xhrGuids[e] = !0, this.totalCbs += 1)
+          }), d.on("xhr-load-removed", function(t, n) {
+            var e = "" + h(t) + !!n;
+            this.xhrGuids && this.xhrGuids[e] && (delete this.xhrGuids[e], this.totalCbs -= 1)
+          }), d.on("addEventListener-end", function(t, n) {
+            n instanceof g && "load" === t[0] && d.emit("xhr-load-added", [t[1], t[2]], n)
+          }), d.on("removeEventListener-end", function(t, n) {
+            n instanceof g && "load" === t[0] && d.emit("xhr-load-removed", [t[1], t[2]], n)
+          }), d.on("fn-start", function(t, n, e) {
+            n instanceof g && ("onload" === e && (this.onload = !0), ("load" === (t[0] && t[0].type) || this.onload) && (this.xhrCbStart = c.now()))
+          }), d.on("fn-end", function(t, n) {
+            this.xhrCbStart && d.emit("xhr-cb-time", [c.now() - this.xhrCbStart, this.onload, n], n)
+          }), d.on("fetch-before-start", function(t) {
+            var n, e = t[1] || {};
+            "string" == typeof t[0] ? n = t[0] : t[0] && t[0].url && (n = t[0].url), n && (this.sameOrigin = f(n).sameOrigin);
+            var r = !1;
+            if ("init" in NREUM && "distributed_tracing" in NREUM.init && (r = !!NREUM.init.distributed_tracing.enabled), r && this.sameOrigin) {
+              var o = u();
+              if (!o || !o.header) return;
+              var i = o.header;
+              if ("string" == typeof t[0]) {
+                var a = {};
+                for (var c in e) a[c] = e[c];
+                a.headers = new Headers(e.headers || {}), a.headers.set("newrelic", i), this.dt = o, t.length > 1 ? t[1] = a : t.push(a)
+              } else t[0] && t[0].headers && (t[0].headers.append("newrelic", i), this.dt = o)
+            }
+          })
+        }
+      }, {}],
+      10: [function(t, n, e) {
+        n.exports = function(t) {
+          var n = document.createElement("a"),
+            e = window.location,
+            r = {};
+          n.href = t, r.port = n.port;
+          var o = n.href.split("://");
+          !r.port && o[1] && (r.port = o[1].split("/")[0].split("@").pop().split(":")[1]), r.port && "0" !== r.port || (r.port = "https" === o[0] ? "443" : "80"), r.hostname = n.hostname || e.hostname, r.pathname = n.pathname, r.protocol =
+            o[0], "/" !== r.pathname.charAt(0) && (r.pathname = "/" + r.pathname);
+          var i = !n.protocol || ":" === n.protocol || n.protocol === e.protocol,
+            a = n.hostname === document.domain && n.port === e.port;
+          return r.sameOrigin = i && (!n.hostname || a), r
+        }
+      }, {}],
+      11: [function(t, n, e) {
+        function r() {}
+
+        function o(t, n, e) {
+          return function() {
+            return i(t, [f.now()].concat(c(arguments)), n ? null : this, e), n ? void 0 : this
+          }
+        }
+        var i = t("handle"),
+          a = t(17),
+          c = t(18),
+          s = t("ee").get("tracer"),
+          f = t("loader"),
+          u = NREUM;
+        "undefined" == typeof window.newrelic && (newrelic = u);
+        var d = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"],
+          l = "api-",
+          p = l + "ixn-";
+        a(d, function(t, n) {
+          u[n] = o(l + n, !0, "api")
+        }), u.addPageAction = o(l + "addPageAction", !0), u.setCurrentRouteName = o(l + "routeName", !0), n.exports = newrelic, u.interaction = function() {
+          return (new r).get()
+        };
+        var h = r.prototype = {
+          createTracer: function(t, n) {
+            var e = {},
+              r = this,
+              o = "function" == typeof n;
+            return i(p + "tracer", [f.now(), t, e], r),
+              function() {
+                if (s.emit((o ? "" : "no-") + "fn-start", [f.now(), r, o], e), o) try {
+                  return n.apply(this, arguments)
+                } catch (t) {
+                  throw s.emit("fn-err", [arguments, this, t], e), t
+                } finally {
+                  s.emit("fn-end", [f.now()], e)
+                }
+              }
+          }
+        };
+        a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function(t, n) {
+          h[n] = o(p + n)
+        }), newrelic.noticeError = function(t, n) {
+          "string" == typeof t && (t = new Error(t)), i("err", [t, f.now(), !1, n])
+        }
+      }, {}],
+      12: [function(t, n, e) {
+        n.exports = function(t) {
+          if ("string" == typeof t && t.length) return t.length;
+          if ("object" == typeof t) {
+            if ("undefined" != typeof ArrayBuffer && t instanceof ArrayBuffer && t.byteLength) return t.byteLength;
+            if ("undefined" != typeof Blob && t instanceof Blob && t.size) return t.size;
+            if (!("undefined" != typeof FormData && t instanceof FormData)) try {
+              return JSON.stringify(t).length
+            } catch (n) {
+              return
+            }
+          }
+        }
+      }, {}],
+      13: [function(t, n, e) {
+        var r = 0,
+          o = navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);
+        o && (r = +o[1]), n.exports = r
+      }, {}],
+      14: [function(t, n, e) {
+        function r(t, n) {
+          var e = t.getEntries();
+          e.forEach(function(t) {
+            "first-paint" === t.name ? a("timing", ["fp", Math.floor(t.startTime)]) : "first-contentful-paint" === t.name && a("timing", ["fcp", Math.floor(t.startTime)])
+          })
+        }
+
+        function o(t) {
+          if (t instanceof s && !u) {
+            var n, e = Math.round(t.timeStamp);
+            n = e > 1e12 ? Date.now() - e : c.now() - e, u = !0, a("timing", ["fi", e, {
+              type: t.type,
+              fid: n
+            }])
+          }
+        }
+        if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) {
+          var i, a = t("handle"),
+            c = t("loader"),
+            s = NREUM.o.EV;
+          if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) {
+            i = new PerformanceObserver(r);
+            try {
+              i.observe({
+                entryTypes: ["paint"]
+              })
+            } catch (f) {}
+          }
+          if ("addEventListener" in document) {
+            var u = !1,
+              d = ["click", "keydown", "mousedown", "pointerdown", "touchstart"];
+            d.forEach(function(t) {
+              document.addEventListener(t, o, !1)
+            })
+          }
+        }
+      }, {}],
+      15: [function(t, n, e) {
+        function r() {
+          function t() {
+            return n ? 15 & n[e++] : 16 * Math.random() | 0
+          }
+          var n = null,
+            e = 0,
+            r = window.crypto || window.msCrypto;
+          r && r.getRandomValues && (n = r.getRandomValues(new Uint8Array(31)));
+          for (var o, i = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx", a = "", c = 0; c < i.length; c++) o = i[c], "x" === o ? a += t().toString(16) : "y" === o ? (o = 3 & t() | 8, a += o.toString(16)) : a += o;
+          return a
+        }
+
+        function o() {
+          function t() {
+            return n ? 15 & n[e++] : 16 * Math.random() | 0
+          }
+          var n = null,
+            e = 0,
+            r = window.crypto || window.msCrypto;
+          r && r.getRandomValues && Uint8Array && (n = r.getRandomValues(new Uint8Array(31)));
+          for (var o = [], i = 0; i < 16; i++) o.push(t().toString(16));
+          return o.join("")
+        }
+        n.exports = {
+          generateUuid: r,
+          generateCatId: o
+        }
+      }, {}],
+      16: [function(t, n, e) {
+        function r(t, n) {
+          if (!o) return !1;
+          if (t !== o) return !1;
+          if (!n) return !0;
+          if (!i) return !1;
+          for (var e = i.split("."), r = n.split("."), a = 0; a < r.length; a++)
+            if (r[a] !== e[a]) return !1;
+          return !0
+        }
+        var o = null,
+          i = null,
+          a = /Version\/(\S+)\s+Safari/;
+        if (navigator.userAgent) {
+          var c = navigator.userAgent,
+            s = c.match(a);
+          s && c.indexOf("Chrome") === -1 && c.indexOf("Chromium") === -1 && (o = "Safari", i = s[1])
+        }
+        n.exports = {
+          agent: o,
+          version: i,
+          match: r
+        }
+      }, {}],
+      17: [function(t, n, e) {
+        function r(t, n) {
+          var e = [],
+            r = "",
+            i = 0;
+          for (r in t) o.call(t, r) && (e[i] = n(r, t[r]), i += 1);
+          return e
+        }
+        var o = Object.prototype.hasOwnProperty;
+        n.exports = r
+      }, {}],
+      18: [function(t, n, e) {
+        function r(t, n, e) {
+          n || (n = 0), "undefined" == typeof e && (e = t ? t.length : 0);
+          for (var r = -1, o = e - n || 0, i = Array(o < 0 ? 0 : o); ++r < o;) i[r] = t[n + r];
+          return i
+        }
+        n.exports = r
+      }, {}],
+      19: [function(t, n, e) {
+        n.exports = {
+          exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart
+        }
+      }, {}],
+      ee: [function(t, n, e) {
+        function r() {}
+
+        function o(t) {
+          function n(t) {
+            return t && t instanceof r ? t : t ? s(t, c, i) : i()
+          }
+
+          function e(e, r, o, i) {
+            if (!l.aborted || i) {
+              t && t(e, r, o);
+              for (var a = n(o), c = m(e), s = c.length, f = 0; f < s; f++) c[f].apply(a, r);
+              var d = u[y[e]];
+              return d && d.push([x, e, r, a]), a
+            }
+          }
+
+          function p(t, n) {
+            w[t] = m(t).concat(n)
+          }
+
+          function h(t, n) {
+            var e = w[t];
+            if (e)
+              for (var r = 0; r < e.length; r++) e[r] === n && e.splice(r, 1)
+          }
+
+          function m(t) {
+            return w[t] || []
+          }
+
+          function v(t) {
+            return d[t] = d[t] || o(e)
+          }
+
+          function g(t, n) {
+            f(t, function(t, e) {
+              n = n || "feature", y[e] = n, n in u || (u[n] = [])
+            })
+          }
+          var w = {},
+            y = {},
+            x = {
+              on: p,
+              addEventListener: p,
+              removeEventListener: h,
+              emit: e,
+              get: v,
+              listeners: m,
+              context: n,
+              buffer: g,
+              abort: a,
+              aborted: !1
+            };
+          return x
+        }
+
+        function i() {
+          return new r
+        }
+
+        function a() {
+          (u.api || u.feature) && (l.aborted = !0, u = l.backlog = {})
+        }
+        var c = "nr@context",
+          s = t("gos"),
+          f = t(17),
+          u = {},
+          d = {},
+          l = n.exports = o();
+        l.backlog = u
+      }, {}],
+      gos: [function(t, n, e) {
+        function r(t, n, e) {
+          if (o.call(t, n)) return t[n];
+          var r = e();
+          if (Object.defineProperty && Object.keys) try {
+            return Object.defineProperty(t, n, {
+              value: r,
+              writable: !0,
+              enumerable: !1
+            }), r
+          } catch (i) {}
+          return t[n] = r, r
+        }
+        var o = Object.prototype.hasOwnProperty;
+        n.exports = r
+      }, {}],
+      handle: [function(t, n, e) {
+        function r(t, n, e, r) {
+          o.buffer([t], r), o.emit(t, n, e)
+        }
+        var o = t("ee").get("handle");
+        n.exports = r, r.ee = o
+      }, {}],
+      id: [function(t, n, e) {
+        function r(t) {
+          var n = typeof t;
+          return !t || "object" !== n && "function" !== n ? -1 : t === window ? 0 : a(t, i, function() {
+            return o++
+          })
+        }
+        var o = 1,
+          i = "nr@id",
+          a = t("gos");
+        n.exports = r
+      }, {}],
+      loader: [function(t, n, e) {
+        function r() {
+          if (!E++) {
+            var t = b.info = NREUM.info,
+              n = p.getElementsByTagName("script")[0];
+            if (setTimeout(u.abort, 3e4), !(t && t.licenseKey && t.applicationID && n)) return u.abort();
+            f(y, function(n, e) {
+              t[n] || (t[n] = e)
+            }), s("mark", ["onload", a() + b.offset], null, "api");
+            var e = p.createElement("script");
+            e.src = "https://" + t.agent, n.parentNode.insertBefore(e, n)
+          }
+        }
+
+        function o() {
+          "complete" === p.readyState && i()
+        }
+
+        function i() {
+          s("mark", ["domContent", a() + b.offset], null, "api")
+        }
+
+        function a() {
+          return R.exists && performance.now ? Math.round(performance.now()) : (c = Math.max((new Date).getTime(), c)) - b.offset
+        }
+        var c = (new Date).getTime(),
+          s = t("handle"),
+          f = t(17),
+          u = t("ee"),
+          d = t(16),
+          l = window,
+          p = l.document,
+          h = "addEventListener",
+          m = "attachEvent",
+          v = l.XMLHttpRequest,
+          g = v && v.prototype;
+        NREUM.o = {
+          ST: setTimeout,
+          SI: l.setImmediate,
+          CT: clearTimeout,
+          XHR: v,
+          REQ: l.Request,
+          EV: l.Event,
+          PR: l.Promise,
+          MO: l.MutationObserver
+        };
+        var w = "" + location,
+          y = {
+            beacon: "bam.nr-data.net",
+            errorBeacon: "bam.nr-data.net",
+            agent: "js-agent.newrelic.com/nr-1153.min.js"
+          },
+          x = v && g && g[h] && !/CriOS/.test(navigator.userAgent),
+          b = n.exports = {
+            offset: c,
+            now: a,
+            origin: w,
+            features: {},
+            xhrWrappable: x,
+            userAgent: d
+          };
+        t(11), t(14), p[h] ? (p[h]("DOMContentLoaded", i, !1), l[h]("load", r, !1)) : (p[m]("onreadystatechange", o), l[m]("onload", r)), s("mark", ["firstbyte", c], null, "api");
+        var E = 0,
+          R = t(19)
+      }, {}],
+      "wrap-function": [function(t, n, e) {
+        function r(t) {
+          return !(t && t instanceof Function && t.apply && !t[a])
+        }
+        var o = t("ee"),
+          i = t(18),
+          a = "nr@original",
+          c = Object.prototype.hasOwnProperty,
+          s = !1;
+        n.exports = function(t, n) {
+          function e(t, n, e, o) {
+            function nrWrapper() {
+              var r, a, c, s;
+              try {
+                a = this, r = i(arguments), c = "function" == typeof e ? e(r, a) : e || {}
+              } catch (f) {
+                l([f, "", [r, a, o], c])
+              }
+              u(n + "start", [r, a, o], c);
+              try {
+                return s = t.apply(a, r)
+              } catch (d) {
+                throw u(n + "err", [r, a, d], c), d
+              } finally {
+                u(n + "end", [r, a, s], c)
+              }
+            }
+            return r(t) ? t : (n || (n = ""), nrWrapper[a] = t, d(t, nrWrapper), nrWrapper)
+          }
+
+          function f(t, n, o, i) {
+            o || (o = "");
+            var a, c, s, f = "-" === o.charAt(0);
+            for (s = 0; s < n.length; s++) c = n[s], a = t[c], r(a) || (t[c] = e(a, f ? c + o : o, i, c))
+          }
+
+          function u(e, r, o) {
+            if (!s || n) {
+              var i = s;
+              s = !0;
+              try {
+                t.emit(e, r, o, n)
+              } catch (a) {
+                l([a, e, r, o])
+              }
+              s = i
+            }
+          }
+
+          function d(t, n) {
+            if (Object.defineProperty && Object.keys) try {
+              var e = Object.keys(t);
+              return e.forEach(function(e) {
+                Object.defineProperty(n, e, {
+                  get: function() {
+                    return t[e]
+                  },
+                  set: function(n) {
+                    return t[e] = n, n
+                  }
+                })
+              }), n
+            } catch (r) {
+              l([r])
+            }
+            for (var o in t) c.call(t, o) && (n[o] = t[o]);
+            return n
+          }
+
+          function l(n) {
+            try {
+              t.emit("internal-error", n)
+            } catch (e) {}
+          }
+          return t || (t = o), e.inPlace = f, e.flag = a, e
+        }
+      }, {}]
+    }, {}, ["loader", 2, 9]);
+  </script>
+  <script type="text/javascript">
+    window.NREUM || (NREUM = {});
+    NREUM.info = {
+      "beacon": "bam.nr-data.net",
+      "queueTime": 1,
+      "licenseKey": "73d06b4457",
+      "agent": "",
+      "transactionName": "MVNXMUpQCkcDWhJQWwgZcxBWUhBdDVdJV1ERQ01LUF4JUUxPD1xDFQxdClVUO0QDXgM=",
+      "applicationID": "3073470",
+      "errorBeacon": "bam.nr-data.net",
+      "applicationTime": 210
+    }
+  </script>
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>FitMe</title>
+  <meta name="description" content="Start your weight loss journey today with the help of India&#39;s best dietitians, fitness trainers and yoga instructors. Get personalized yoga, workout, and diet plan for weight loss.">
+  <meta name="google-site-verification" content="8t1HWzE_dZQ39N8apKbCTue8dGpZFld2fUZBeaciGhM" />
+  <!-- FAVICON START -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static '/img/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static '/img/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static '/img/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static '/img/site.webmanifest' %}">
+  <!--FAVICON END-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <meta name="twitter:card" content="summary">
+  <meta property="og:title" content="FitMe Weight Loss Diet, Exercise and Yoga Coach" />
+  <meta property="og:description" content="Start your weight loss journey today with the help of India&#39;s best dietitians, fitness trainers and yoga instructors. Get personalized yoga, workout, and diet plan for weight loss.">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.FitMe.com/" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap-social.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}" defer>
+  <link rel="stylesheet" href="{% static '/css/webflow.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static '/css/webflow1.css' %}" type="text/css">
+  <link rel="stylesheet" type="text/css" href="{% static '/css/swiper.min.css' %}" defer>
+  <link rel="stylesheet" type="text/css" href="{% static '/css/new.min.css' %}" defer>
+  <link rel="stylesheet" href="{% static '/css/form.css' %}" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" defer>
+  <!--link rel="amphtml" href="https://www.FitMe.com/amp/home/"-->
+  <script type="text/javascript">
+    var $$leadSource = 'home-page';
+  </script>
+
+  <script>
+    ! function() {
+      function o(n, i) {
+        if (n && i)
+          for (var r in i) i.hasOwnProperty(r) && (void 0 === n[r] ? n[r] = i[r] : n[r].constructor === Object && i[r].constructor === Object ? o(n[r], i[r]) : n[r] = i[r])
+      }
+      try {
+        var n = decodeURIComponent("");
+        if (n.length > 0 && window.JSON && "function" == typeof window.JSON.parse) {
+          var i = JSON.parse(n);
+          void 0 !== window.BOOMR_config ? o(window.BOOMR_config, i) : window.BOOMR_config = i
+        }
+      } catch (r) {
+        window.console && "function" == typeof window.console.error && console.error("mPulse: Could not parse configuration", r)
+      }
+    }();
+  </script>
+  <script>
+    ! function(e) {
+      var a = "https://s.go-mpulse.net/boomerang/",
+        t = "addEventListener";
+      if ("False" == "True") e.BOOMR_config = e.BOOMR_config || {}, e.BOOMR_config.PageParams = e.BOOMR_config.PageParams || {}, e.BOOMR_config.PageParams.pci = !0, a = "https://s2.go-mpulse.net/boomerang/";
+      if (window.BOOMR_API_key = "L7QA7-M3PBN-YYEWW-23UGW-CB36M", function() {
+          function n(a) {
+            e.BOOMR_onload = a && a.timeStamp || (new Date).getTime()
+          }
+          if (!e.BOOMR || !e.BOOMR.version && !e.BOOMR.snippetExecuted) {
+            e.BOOMR = e.BOOMR || {}, e.BOOMR.snippetExecuted = !0;
+            var i, o, r, _ = document.createElement("iframe");
+            if (e[t]) e[t]("load", n, !1);
+            else if (e.attachEvent) e.attachEvent("onload", n);
+            _.src = "javascript:void(0)", _.title = "", _.role = "presentation", (_.frameElement || _).style.cssText = "width:0;height:0;border:0;display:none;", r = document.getElementsByTagName("script")[0], r.parentNode.insertBefore(_, r);
+            try {
+              o = _.contentWindow.document
+            } catch (O) {
+              i = document.domain, _.src = "javascript:var d=document.open();d.domain='" + i + "';void(0);", o = _.contentWindow.document
+            }
+            o.open()._l = function() {
+              var e = this.createElement("script");
+              if (i) this.domain = i;
+              e.id = "boomr-if-as", e.src = a + "L7QA7-M3PBN-YYEWW-23UGW-CB36M", BOOMR_lstart = (new Date).getTime(), this.body.appendChild(e)
+            }, o.write("<bo" + 'dy onload="document._l();">'), o.close()
+          }
+        }(), "".length > 0)
+        if (e && "performance" in e && e.performance && "function" == typeof e.performance.setResourceTimingBufferSize) e.performance.setResourceTimingBufferSize();
+      ! function() {
+        if (BOOMR = e.BOOMR || {}, BOOMR.plugins = BOOMR.plugins || {}, !BOOMR.plugins.AK) {
+          var a = "" == "true" ? 1 : 0,
+            t = "",
+            n = "m7cnlevusu2nexowj3qa-f-ad73f6b74-clientnsv4-s.akamaihd.net",
+            i = {
+              "ak.v": 25,
+              "ak.cp": "879630",
+              "ak.ai": parseInt("561593", 10),
+              "ak.ol": "0",
+              "ak.cr": 10,
+              "ak.ipv": 4,
+              "ak.proto": "h2",
+              "ak.rid": "83aa336",
+              "ak.r": 36364,
+              "ak.a2": a,
+              "ak.m": "a",
+              "ak.n": "essl",
+              "ak.bpcip": "103.196.213.0",
+              "ak.cport": 56915,
+              "ak.gh": "180.149.52.206",
+              "ak.quicv": "",
+              "ak.tlsv": "tls1.2",
+              "ak.0rtt": "",
+              "ak.csrc": "-",
+              "ak.acc": "",
+              "ak.t": "1574325984"
+            };
+          if ("" !== t) i["ak.ruds"] = t;
+          var o = {
+            i: !1,
+            av: function(a) {
+              var t = "http.initiator";
+              if (a && (!a[t] || "spa_hard" === a[t])) i["ak.feo"] = void 0 !== e.aFeoApplied ? 1 : 0, BOOMR.addVar(i)
+            },
+            rv: function() {
+              var e = ["ak.bpcip", "ak.cport", "ak.cr", "ak.csrc", "ak.gh", "ak.ipv", "ak.m", "ak.n", "ak.ol", "ak.proto", "ak.quicv", "ak.tlsv", "ak.0rtt", "ak.r", "ak.acc", "ak.t"];
+              BOOMR.removeVar(e)
+            }
+          };
+          BOOMR.plugins.AK = {
+            akVars: i,
+            akDNSPreFetchDomain: n,
+            init: function() {
+              if (!o.i) {
+                var e = BOOMR.subscribe;
+                e("before_beacon", o.av, null, null), e("onbeacon", o.rv, null, null), o.i = !0
+              }
+              return this
+            },
+            is_complete: function() {
+              return !0
+            }
+          }
+        }
+      }()
+    }(window);
+  </script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMWZ638" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+
+  <nav class="hme-navbar navbar-fixed-top">
+    <div class="row">
+      <div class="col-md-3 col-md-offset-1 col-sm-6 col-xs-6">
+        <a href="/" onclick="_ga('HomePage', 'Logo Click', 'Header Logo Homepage')">
+          <img id="123" class="hme-logo" src="{% static '/img/logo.png' %}" alt="FitMe" />
+        </a>
+      </div>
+      <div class="col-md-6 col-xs-6 col-sm-6 col-xs-6">
+        <div class="nav-header-items">
+          <div class="nav-header-items--content navbarIcon">
+            <!-- <a href="https://play.google.com/store/apps/details?id=com.FitMe.basic&hl=en" target="_blank" onclick="_ga('HomePage', 'Sticky Bar', 'Android Navigation Homepage')">
+            <img src="/static/img/home/googleplay_black.ad37344ca517.png" class="get-app-now--nav-image" alt="FitMe android app" title="FitMe dashboard"/>
+          </a>-->
+          </div>
+          <div class="nav-header-items--content navbarIcon">
+            <a href="https://itunes.apple.com/in/app/FitMe-weight-loss-coach/id943712366?mt=8" target="_blank" onclick="_ga('HomePage', 'Sticky Bar', 'iOS Navigation Homepage')">
+              <!--- <img src="/static/img/home/appstore_black.34107d94782d.png" class="get-app-now--nav-image" alt="FitMe ios app" title="FitMe dashboard"/>
+          </a>-->
+          </div>
+          <div class="nav-header-items">
+            <a href="{% url 'bmimetric' %}" id="expertNavId" class="side-nav-text">Apply for Traineer
+              <span style="color: #EF4437"></span>
+            </a>
+
+          </div>
+
+          <div class="nav-header-items--content" id="navIcon">&#9776;</div>
+        </div>
+      </div>
+    </div>
+    <div id="sideNavBar" class="sidenav">
+      <div class="side-nav-buttons--container">
+
+        <div>
+          <img src="{% static '/img/close.png' %}" class="side-nav-buttons--close" id="closeNav" alt="close button" title="close" onclick="_ga('HomePage', 'Hamburger List Click', 'Close Navigation Homepage')" />
+        </div>
+      </div>
+      <div class="nav-link--container">
+        <a href="/" id="homeNavId" class="side-nav-text" onclick="_ga('HomePage', 'Hamburger List Click', 'Home Navigation Homepage')">Home</a>
+        <!--a href="/app/" id="appNavId" class="side-nav-text" onclick="_ga('HomePage', 'Hamburger List Click', 'App Navigation Homepage')">Our Application</a>
+      <a href="/ria/" class="side-nav-text" onclick="_ga('Hamburger List Click', 'Ria Navigation Homepage')">Meet Ria</a-->
+        <a href="#" id="expertNavId" class="side-nav-text" ">Our Coaches</a>
+      <a href=" {% url 'contact' %}" class="side-nav-text">Contact</a>
+        <a href="{% url 'gallery' %}" class="side-nav-text">Gallery</a>
+        <!--a href=""/careers/" class="side-nav-text" onclick="_ga('HomePage', 'Hamburger List Click', 'Careers Navigation Homepage')">Careers</a>
+      <a href="https://www.FitMe.com/blog/" target="_blank" class="side-nav-text" onclick="_ga('HomePage', 'Hamburger List Click', 'Blog  Navigation Homepage')">Blog</a-->
+        <a href="{% url 'about' %}" target="_blank" class="side-nav-text">Our Team</a>
+      </div>
+      <h3 class="get-app-now--text">Get fit with FitMe!</h3>
+      <!--p class="get-app-now--description"></p>
+    <div class="get-app-now--image-container">
+      <a href="https://play.google.com/store/apps/details?id=com.FitMe.basic&hl=en" target="_blank" onclick="_ga('HomePage', 'Hamburger List Click', 'Android Navigation Homepage')">
+        <img src="/static/img/home/googleplay_black.ad37344ca517.png" class="get-app-now--image" alt="FitMe android app" title="FitMe dashboard"/>
+      </a>
+      <a href="https://itunes.apple.com/in/app/FitMe-weight-loss-coach/id943712366?mt=8" target="_blank" onclick="_ga('HomePage', 'Hamburger List Click', 'iOS Navigation Homepage');">
+        <img src="/static/img/home/appstore_black.34107d94782d.png" class="get-app-now--image" alt="FitMe ios app" title="FitMe dashboard"/>
+      </a>
+    </div-->
+    </div>
+  </nav>
+
+  <style>
+    .download-hero {
+      background-image: url(static/img/home_white.jpg);
+    }
+
+    @media (max-width: 360px) {
+      .overall-hero-overlay {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  </style>
+
+  <div class="download-hero">
+    <div id="download-now" class="overall-hero-overlay">
+      <div class="container w-container">
+        <div class="hero-left-block">
+          <h1 data-ix="fade-in-on-load" class="hero-title-large">Mission Fit India!</h1>
+          <p data-ix="fade-in-on-load-2" class="hero-description">We are here taking initiative to work for the people of India.<br>We beileve everyone needs guidance in their life for achieving the GOAL</p>
+        </div>
+        <!--login form start-->
+        <div class="hero-cta-form w-form">
+          <!-- Modal content ---->
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-header"><strong class="bold-text">LOGIN</strong><br /></div>
+            {{ form |crispy }}
+            <button type="submit" class="button full-submit-button w-button btn btn-primary lead-gerneration-submit"> login </button>
+            <!--<input type="submit"   class="button full-submit-button w-button btn btn-primary lead-gerneration-submit" /> -->
+          </form>
+
+          <a href="signup">
+            <input type="submit" value="Sign Up" data-wait="Please wait..." class="button full-submit-button w-button btn btn-primary lead-gerneration-submit" id="lead-gerneration-submit" />
+          </a>
+          <div class="row">
+            <div class="col-md-5">
+              <hr>
+            </div>
+            <div class="col-md-2">
+              <p style="color: black;"><strong>OR</strong></p>
+            </div>
+            <div class="col-md-5">
+              <hr>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-md-3"> </div>
+            <div class="col-md-3">
+              <a href="{% url 'social:begin' 'facebook' %}"><i class="fa fa-facebook-square " style="font-size:48px;color:blue"></i></a>
+            </div>
+            <div class="col-md-3">
+              <a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static '/img/googlelogo.png' %}" alt="googlelogo"></a>
+            </div>
+            <div class="col-md-3"> </div>
+          </div>
+        </div>
+        <!--  <div id="fake-success-message">Thank you! You will receive your FREE call shortly.</div>-->
+
+        <!-- <div class="otp-card" id="otp-card">
+      <h3 class="verify-text">Verify Your Number</h3>
+      <h3 class="otp-message">
+        We have sent an OTP to your number
+      </h3>-->
+        <!-- <form onsubmit="event.preventDefault(); submitOTPForm();">
+        <div id="divOuter" class="otp-container">
+          <div id="divInner">
+            <input class="partitioned" id="otp-text" type="text" maxlength="6" required>
+          </div>
+        </div>
+        <input type="submit" class="verify-btn" id="otp-verify-btn" value="VERIFY NUMBER">
+        <p class="resend-otp" onclick="resendOTP()">Didn’t get the OTP? Resend</p>
+      </form>-->
+
+        <!-- <div id="success-block">
+      <img src="static/img/home_white.jpg" style="width: 85%;">
+      <div id="cons-success-message">Thank you! You will receive your FREE call shortly.</div>
+    </div>
+  </div>-->
+
+
+
+        <!--<script>
+ /*let leadId;
+  function closeConsModal() {
+    document.getElementById("cons-modal").style.display = "none";
+  }
+
+  function openConsModal() {
+      document.getElementById("cons-modal").style.display = "table";
+  }*/
+
+ /* function submitConsultationForm(){
+      const name = document.getElementById("form-cons-name").value;
+      const phoneNumber = document.getElementById("form-cons-phone").value
+      const email = document.getElementById("cons-form-email").value
+      var isdCode = document.getElementById("isdCode");
+      var countryCode = isdCode.options[isdCode.selectedIndex].value;
+
+      //make button disabled onclick
+      var subBtn = document.getElementById("lead-gerneration-submit");
+      subBtn.disabled = true;
+
+      fetch('/api/v1/loose-lead/create_with_otp', {
+          method: 'post',
+          headers: {
+              'Accept': 'application/json, text/plain, ',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              email_id: email,
+              lead_data:{
+                  isd_code: countryCode,
+                  name
+              },
+              phone_number: phoneNumber,
+              source
+          })
+      }).then(res=>res.json()).then(res => {
+          if(res.success && res.loose_lead_details){
+            leadId = res.loose_lead_details.id;
+            let consForm =  document.getElementById("cons-form-container");
+            let otpForm = document.getElementById("otp-card");
+            if(consForm) {
+              consForm.style.display = "none";
+            }
+            if(otpForm) {
+              otpForm.style.display = "flex";
+            }
+          } else {
+            let successMessage = document.getElementById("fake-success-message");
+            if(successMessage){
+                successMessage.style.display="block";
+            }
+            subBtn.disabled = false;
+          }
+      });
+  }
+
+  function submitOTPForm(){
+    const otp = document.getElementById("otp-text").value;
+    const otpVerifyBtn = document.getElementById("otp-verify-btn");
+
+    if(otpVerifyBtn){
+      otpVerifyBtn.disabled = true;
+    }*/
+
+    fetch('/api/v1/loose-lead/verify_otp', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "otp_code": otp,
+        "lead_id": leadId
+      })
+    }).then(res=>res.json()).then(res => {
+      otpVerifyBtn.disabled = false;
+      let message = document.getElementById("error-message-otp");
+      message.text = res.message;
+      if(res.verify_status){
+        let otpForm = document.getElementById("otp-card");
+        let successBlock = document.getElementById("success-block");
+        if(otpForm) {
+          otpForm.style.display = "none";
+        }
+        if(successBlock){
+          successBlock.style.display = "flex";
+        }
+      }
+    });
+  }
+
+  function resendOTP(){
+    fetch('/api/v1/loose-lead/resend_otp', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "lead_id": leadId
+      })
+    });
+  }
+</script>-->
+        <style>
+          .dark-field {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 16px;
+            padding-left: 8px;
+            border: 1px solid #e4e4e4;
+            border-radius: 4px;
+            -webkit-transition: box-shadow 200ms ease, border 200ms ease, background-color 200ms ease;
+            transition: box-shadow 200ms ease, border 200ms ease, background-color 200ms ease;
+            font-family: Roboto, sans-serif;
+            font-size: 13px;
+          }
+
+          .dark-field:hover {
+            border-color: #bebebe;
+          }
+
+          .dark-field:focus {
+            background-color: #fff;
+            box-shadow: 3px 3px 16px 0 rgba(0, 0, 0, .2);
+          }
+
+          .isd-prefix {
+            width: 30%;
+            padding: 8px 4px;
+          }
+
+          .flex {
+            display: flex;
+          }
+
+          /* otp styles */
+          /*.otp-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  .verify-text{
+    color: #EF4437;
+    margin: 24px 0 0 0;
+  }
+
+  .otp-message{
+    margin: 12px 0 0 0;
+    color: #707070;
+    font-size: medium;
+  }
+
+  .otp-container{
+    margin-top: 40px;
+  }
+
+  .otp-box{
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid #DFDFDF;
+  }
+
+  .verify-btn{
+    color: white;
+    background-color:#EF4437;
+    padding: 10px 35px;
+    border-radius: 18px;
+    margin-top: 10px;
+    font-size: 14px
+  }
+
+  #fake-success-message{
+    display: none;
+  }
+
+  .partitioned {
+    padding-left: 10px;
+    letter-spacing: 18px;
+    border: 0;
+    background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 31px 1px;
+    background-repeat: repeat-x;
+    background-position-x: 28px;
+    width: 350px;
+    font-size: 22px;
+    min-width: 220px;
+    color: black;
+  }
+
+  #divInner{
+    left: 0;
+    position: sticky;
+  }
+
+  #divOuter{
+    width: 190px;
+    overflow: hidden;
+    margin: 25px auto;
+  }
+
+   #success-block {
+    display: none;
+    width: 300px;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .resend-otp{
+    color: #333333;
+    margin-top: 20px;
+  }
+
+   #cons-success-message{
+    background-color: white;
+    color: #333333;
+    padding: 10px;
+ }*/
+        </style>
+        <style>
+          .close {
+            display: none
+          }
+        </style>
+
+        <script>
+          var source = "home-page";
+        </script>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <section class="hme-work-section">
+    <h3 class="hme-work-section--title">Our Services</h3>
+    <div class="swiper-container work-section-container">
+      <!-- Additional required wrapper -->
+      <div class="swiper-custom-nav">
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="hme-work-section--slide-content">
+            <div class="hme-work-section--slide-text-content">
+              <h2 class="hme-work-section--slide-text-content--title">Step 1 -Start Your journey</h2>
+              <img class="hme-work-section--slide-text-content--image cursor-pointer" alt="fitness goal" title="Set Your Fitness Goal" src="{% static '/img/diet.jpg' %}" id="fitnessLink" data-toggle="modal" data-target="#fitnessModal">
+              <h4 class="hme-work-section--slide-text-content--description"> Silently working hard towards their goal can cut them off from the world and they might be working hard but you never know if their hard work was placed in the right
+                direction and they might realize it too late. </h4>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="hme-work-section--slide-content">
+            <div class="hme-work-section--slide-text-content">
+              <h2 class="hme-work-section--slide-text-content--title">Step 2 - Trainers</h2>
+              <img class="hme-work-section--slide-text-content--image" alt="FitMe coaches" title="Coaches guide you" src="static/img/home/Step2.98fd59777e57.png">
+              <h4 class="hme-work-section--slide-text-content--description">If you are looking to simply get healthier, we will match you with a one-on-one trainer who can customize each session to meet your fitness goals</h4>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="hme-work-section--slide-content">
+            <div class="hme-work-section--slide-text-content">
+              <h2 class="hme-work-section--slide-text-content--title">Step 3 - Track your self</h2>
+              <img class="hme-work-section--slide-text-content--image" alt="tracking" title="Track and Measure your Progress" src="/static/img/home/Step3.e6c0bc20fc8d.png">
+              <h4 class="hme-work-section--slide-text-content--description">Best Smart Watch and Shoes for Tracking</h4>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="hme-work-section--slide-content">
+            <div class="hme-work-section--slide-text-content">
+              <h2 class="hme-work-section--slide-text-content--title">Step 4 - Feel the new you</h2>
+              <img class="hme-work-section--slide-text-content--image" alt="results" title="Discover the new you" src="/static/img/home/Step4.e5e7a1dbf70b.png">
+              <h4 class="hme-work-section--slide-text-content--description">As a part of the movement, individuals and organisations can undertake various efforts for their own health and well being as well as for the health and well being of fellow
+                Indians. Fitness does not mean only physical fitness, but also means mental strength and emotional equanimity.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!--<section class="hme-success-stories-section">
+  <h3 class="hme-work-section--title">Our Success Stories</h3>
+  <div class="swiper-container success-stories-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide custom-swiper-slide">
+        <a href="#" target="_blank" onclick = "ga('send', 'event', 'HomePage', 'CTA Click', 'Transformation Rachna Section 3 Homepage')">
+          <div class="swiper-wrapper success-wrapper">
+            <img src="/static/img/home/Rachna.8f6dd9faf0a6.png" alt="Rachna Vadhera" title="Rachna Vadhera - Home maker" class="hme-success-stories--icon"
+            />
+            <div class="success-swiper-slide">
+              <h6 class="success-swiper-slide--name">kaustubh sanadhya</h6>
+              <p class="success-swiper-slide--heading"><sup></sup></p>
+              <p class="success-swiper-slide--description">"</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="swiper-slide custom-swiper-slide">
+        <a href="#" target="_blank" onclick = "ga('send', 'event', 'HomePage', 'CTA Click', 'Transformation Saikat Section 3 Homepage')">
+          <div class="swiper-wrapper success-wrapper">
+            <img src="/static/img/home/Saikat.507762172458.png" alt="Saikat Debnath" title="Saikat Debnath - Swimmer" class="hme-success-stories--icon"
+            />
+            <div class="success-swiper-slide">
+              <h6 class="success-swiper-slide--name">Ajay yadav</h6>
+              <p class="success-swiper-slide--heading"><sup></sup></p>
+              <p class="success-swiper-slide--description"></p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="swiper-slide custom-swiper-slide">
+        <a href="#" target="_blank" onclick = "ga('send', 'event', 'HomePage', 'CTA Click', 'Transformation Ajay Section 3 Homepage')">
+          <div class="swiper-wrapper success-wrapper">
+            <img src="/static/img/home/Ajay.847875b2f4de.png" alt="Ajay Pathak" title="Ajay Pathak - Overcame obesity" class="hme-success-stories--icon"
+            />
+            <div class="success-swiper-slide">
+              <h6 class="success-swiper-slide--name">Dharm Singh</h6>
+              <p class="success-swiper-slide--heading"><sup></sup></p>
+              <p class="success-swiper-slide--description"></p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="swiper-button-next custom-next-button"></div>
+    <div class="swiper-button-prev custom-prev-button"></div>
+  </div>
+  </section>-->
+  <style>
+    .FitMe {
+      background-image: url(static/img/FitMe.jpg);
+    }
+  </style>
+
+  <section class="hme-app-section FitMe ">
+    <h3 class="hme-app-section--title">Always be fit with FitMe!</h3>
+    <h4 class="hme-app-section--subtitle">Track your journey of weight loss with smart watch and shoes with FitMe - Powered by top nutritionists and trainers.</h4>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5 col-md-offset-1">
+          <img src="{% static '/img/FitMe image.jpg' %}" alt="FitMe app" title="FitMe dashboard" class="hme-app-section--app-image" />
+        </div>
+        <div class="col-sm-5">
+          <img src="{% static '/media/phone.jpg' %}" alt="FitMe awards" title="FitMe awards and recognitions" class="hme-app-section--achievements-image" />
+          <br>
+          <a href="/app/" onclick="ga('send', 'event', 'HomePage', 'CTA Click', 'Awards Section 4 Homepage')"><button class="hme-button">KNOW MORE</button></a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="hme-coaches-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 col-sm-offset-1 col-xs-12">
+          <h3 class="hme-coaches-section--title">250+ coaches on your smartphone</h3>
+          <h4 class="hme-coaches-section--subtitle">Access top coaches</h4>
+          <h6 class="hme-coaches-section--subdescription">FitMe is powered by top nutritionists, fitness trainers, and yoga instructors. Run a marathon, build muscles, or achieve significant weight loss with personalized diet plans and workout
+            routines. </h6>
+          <a href="#"><button class="hme-button left-aligned">KNOW MORE</button></a>
+        </div>
+        <--<div class="col-sm-4 col-xs-12">
+          <img class="hme-coaches-section--image" src="/static/img/gurumann.jpg" alt="coach messaging" title="unlimited coach messaging" />
+          <p><small>Reference from internet</small></p>
+          <a href="#"><button class="hme-button mobile-only">KNOW MORE</button></a>
+      </div>-->
+    </div>
+    </div>
+  </section>
+
+  <!--<section class="hme-ria-section">
+  <h3 class="hme-ria-section--title">Meet Ria</h3>
+  <h5 class="hme-ria-section--subtitle">Powered by 150 Million food logs, 15 million messages and over a Millennium of experience, Ria is the world's first AI
+    coach!
+  </h5>
+  <img src="{% static '/media/phone.jpg' %}" alt="FitMe AI coach" title="AI nutritionist" class="hme-ria-section--mobile-image">
+  <p class="hme-ria-section--feature">
+    <span class="hme-ria-section--feature-title">24x7 Coach</span>
+    <br>
+    <span class="hme-ria-section--feature-subtitle">The world's first coach that's reachable at all times, in your pocket!</span>
+  </p>
+  <p class="hme-ria-section--feature">
+    <span class="hme-ria-section--feature-title">Instant Replies</span>
+    <br>
+    <span class="hme-ria-section--feature-subtitle">No more waiting for an answer. Simply ask any question, and get an instant answer</span>
+  </p>
+  <p class="hme-ria-section--feature">
+    <span class="hme-ria-section--feature-title">Stay Motivated</span>
+    <br>
+    <span class="hme-ria-section--feature-subtitle">Got the Health Blues? Ria will ensure you get up and get going... Everytime!</span>
+  </p>
+  <p class="hme-ria-section--feature">
+    <span class="hme-ria-section--feature-title">Ultra Smart and All-in-one</span>
+    <br>
+    <span class="hme-ria-section--feature-subtitle">The first AI coach who's the best Nutritionist and the best Fitness Trainer at once!</span>
+  </p>
+  <a href="/ria/" onclick = "ga('send', 'event', 'HomePage', 'CTA Click', 'Ria Section 6 Homepage')">
+    <button class="hme-button">KNOW MORE</button>
+  </a>
+</section>-->
+
+  <section class="hme-partner-section">
+    <!-- <h3 class="hme-partner-section--title">Partner with us</h3>
+  <div class="row partner-content">
+    <div class="col-sm-4 col-sm-offset-2 col-sm-12">
+      <img src="/static/img/home/Corporate.2b36c9114363.png" alt="corporate wellness" title="FitMe corporate" class="hme-partner-section--image" />
+      <h4 class="hme-partner-section--content-title">Healthify your Workplace</h4>
+      <p class="hme-partner-section--content-subtitle">Looking for a corporate wellness partner? Get your organisation’s wellness programme powered by FitMe</p>
+      <a href="/corporate/" onclick = "ga('send', 'event', 'HomePage', 'CTA Click', 'Corporate Section 8 Homepage')"><button class="hme-button">KNOW MORE</button></a>
+    </div>-->
+    <div class="col-sm-4">
+      <img src="/static/img/FitMe_care.jpg" alt="FitMe care" title="medical" id="healthcareLink" class="hme-partner-section--image cursor-pointer" data-toggle="modal" data-target="#healthcareModal" />
+      <h4 class="hme-partner-section--content-title">FitMe Care</h4>
+      <p class="hme-partner-section--content-subtitle">Looking for a digital wellness partner? Integrate with our lifestyle management solutions to extend care beyond your
+        clinic or hospital</p>
+      <a href="/healthcare/" onclick="ga('send', 'event', 'HomePage', 'CTA Click', 'Medical Section 8 Homepage')"><button class="hme-button">GET IN TOUCH</button></a>
+    </div>
+    </div>
+  </section>
+
+  <!--section class="hme-corporate-section">
+  <h3 class="hme-corporate-section--title">Our Corporate and Healthcare Partners</h3>
+  <div class="container">
+    <div class="row corporate-content--container">
+      <div class="container">
+        <div class="col-md-12">
+            <div class="col-md-2 col-xs-6">
+                <div id="accenture" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="cognizant" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="philips" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="png" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="medanta" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="metlife" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="ge" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="shell" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="unilever" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="cloudnine" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="manipal" class="hme-corporate-section--icon"></div>
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <div id="sakra" class="hme-corporate-section--icon"></div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+  </div>
+</section>
+  <section class="hme-healthier-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-1-offset">
+        <h2 class="hme-healthier-section--app-title">Discover a healthier you!</h2>
+      </div>
+      <div class="col-sm-5">
+        <div class="hme-healthier-section--app-container">
+          <a href="https://play.google.com/store/apps/details?id=com.FitMe.basic&hl=en" target="_blank" onclick = "ga('send', 'event', 'HomePage', 'App Download', 'Android Section 10 Homepage')">
+            <button class="hme-app-button btn-android--white"></button>
+          </a>
+          <a href="https://itunes.apple.com/in/app/FitMe-weight-loss-coach/id943712366?mt=8" target="_blank" onclick = "ga('send', 'event', 'HomePage', 'App Download', 'iOS Section 10 Homepage')">
+            <button class="hme-app-button btn-ios--white"></button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section-->
+
+  <!--section class="hme-news-section">
+  <h3 class="hme-news-section--title">In the news</h3>
+  <div class="row news-content--container">
+      <div class="container">
+          <a rel="nofollow" href="https://timesofindia.indiatimes.com/business/india-business/gurugram-noida-ghaziabad-most-fitness-conscious-citiesstudy/articleshow/62496043.cms"
+            target="_blank" class="col-md-3 col-xs-6">
+            <div id="toi" class="hme-news-section--icon"></div>
+          </a>
+          <a rel="nofollow" href="https://qz.com/1222683/international-womens-day-diet-logs-show-indian-women-are-eating-worse-but-exercising-better/"
+            target="_blank" class="col-md-3 col-xs-6">
+            <div id="quartz" class="hme-news-section--icon"></div>
+          </a>
+          <a rel="nofollow" href="https://economictimes.indiatimes.com/small-biz/startups/newsbuzz/FitMe-raises-12-million-in-series-b-round-of-funding/articleshow/62850956.cms"
+            target="_blank" class="col-md-3 col-xs-6">
+            <div id="economictimes" class="hme-news-section--icon"></div>
+          </a>
+          <a rel="nofollow" href="https://www.hindustantimes.com/health/urban-india-moving-towards-healthy-eating-kolkata-pune-delhi-lead-the-way/story-toipndZrb5ZBQ9cVqHcclL.html"
+            target="_blank" class="col-md-3 col-xs-6">
+            <div id="hindustantimes" class="hme-news-section--icon"></div>
+          </a>
+    </div>
+      <div class="container">
+          <a rel="nofollow" href="https://yourstory.com/2018/02/FitMe-ria-app-fridays/" target="_blank" class="col-md-3 col-xs-6">
+            <div id="yourstory" class="hme-news-section--icon"></div>
+          </a>
+          <a rel="nofollow" href="http://www.thehindu.com/todays-paper/tp-national/tp-mumbai/eat-the-rainbow/article22737024.ece" target="_blank" class="col-md-3 col-xs-6">
+            <div id="hindu" class="hme-news-section--icon"></div>
+          </a>
+          <a rel="nofollow" href="http://vator.tv/news/2018-02-09-FitMe-raises-12m-to-develop-its-ai-powered-nutritionist" target="_blank" class="col-md-3 col-xs-6">
+            <div id="vator" class="hme-news-section--icon"></div>
+          </a>
+          <a rel="nofollow" href="https://www.techinasia.com/FitMe-ai-nutritionist-tucks-into-12-million-dollar-funding-from-samsung-next" target="_blank" class="col-md-3 col-xs-6">
+            <div id="techinasia" class="hme-news-section--icon"></div>
+          </a>
+      </div>
+  </div>
+</section-->
+
+  <section class="hme-career-section">
+    <div class="hme-career-section--content">
+      <div class="hme-career-section--content-text">
+        <h2 class="hme-career-section--content-text-title">Work at FitMe</h2>
+        <p class="hme-career-section--content-text-description">Interested in working with us? Check out the openings and see if you’ve got what it takes to become a part of a fun loving, hard working team!</p>
+      </div>
+      <div class="hme-career-section--content-button-container">
+        <a href="/careers/" onclick="ga('send', 'event', 'HomePage', 'CTA Click', 'Hiring RedBG Homepage')"><button class="hme-button--white">VIEW OPENINGS</button></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="hme-footer-section">
+
+    <div class="row">
+      <div class="col-md-3 col-md-offset-2">
+        <ul>
+          <li class="hme-footer-section-li--title">LINKS</li>
+          <!--<a href="https://www.FitMe.com/blog/" target="_blank" onclick = "_ga('HomePage', 'CTA Click', 'Blog Footer Homepage')">-->
+          <li class="hme-footer-section-li--link">Blog</li>
+          </a>
+          <!--<a href="/dietitians/" target="_blank" onclick = "_ga('HomePage', 'CTA Click', 'Dietitians Footer Homepage')">-->
+          <li class="hme-footer-section-li--link">Dietitians</li>
+          </a>
+          <!--<a href="/fitness-trainers/" target="_blank" onclick = "_ga('HomePage', 'CTA Click', 'Fitness Trainers Footer Homepage')">-->
+          <li class="hme-footer-section-li--link">Fitness Trainers</li>
+          </a>
+          <!-- <a href="/yoga-instructors/" target="_blank" onclick = "_ga('HomePage', 'CTA Click', 'Yoga Instructors Footer Homepage')">-->
+          <li class="hme-footer-section-li--link">Yoga Instructors</li>
+          </a>
+          <!--<a href="/rist/" onclick = "_ga('HomePage', 'CTA Click', 'Rist Footer Homepage')">-->
+          <li class="hme-footer-section-li--link">RIST Fitness Tracker</li>
+          </a>
+          <!--<a href="/terms-and-conditions/" target="_blank" onclick = "_ga('HomePage', 'CTA Click', 'Terms Footer Homepage')">-->
+          <li class="hme-footer-section-li--link">Terms and Conditions</li>
+          </a>
+          <!--<a href="/corporate/" target="_blank" onclick = "_ga('HomePage', 'CTA Click', 'Corporate Footer Homepage')">-->
+          <li class="hme-footer-section-li--link">Corporate Wellness</li>
+          </a>
+          <!--<a href="/team/" target="_blank" onclick = "_ga('HomePage', 'CTA Click', 'Team Footer Homepage')">-->
+          <li class="hme-footer-section-li--link">Meet the Team</li>
+          </a>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul>
+          <li class="hme-footer-section-li--title">CONTACT US</li>
+          <li class="hme-footer-section-li--link--bold">Toll Free Number:</li>
+          <!--<a href="tel:18004199501" onclick = "_ga('HomePage', 'Phone Click', '1800 419 9501 Footer Homepage')">-->
+          <li class="hme-footer-section-li--link">1800 419 9501</li>
+          </a>
+          <li class="hme-footer-section-li--link--bold">Email:</li>
+          <!--<a href="mailto:support@FitMe.com" onclick = "_ga('HomePage', 'Email Click', 'support Footer Homepage')">-->
+          <li class="hme-footer-section-li--link">support@FitMe.com</li>
+          </a>
+          <li class="hme-footer-section-li--link--bold">Address:</li>
+          <li class="hme-footer-section-li--link">
+            FitMe Private Limited <br />
+            102 9th block polytechnic computer science department<br />
+            GLA UNIVERSITY, MATHURA (Uttar Pradesh) <br />
+            INDIA
+          </li>
+          <li class="hme-footer-section-li--link">
+            <br />
+            (Registration No 1065032-V) <br />
+            12-2, 31/70A, Desa Sri Hartamas, <br />
+            KL - 50480
+          </li>
+          <li class="hme-footer-section-li--link">
+            <br />
+            <small>Registration number: 201435901R</small>
+          </li>
+          Registration number: 201435901R
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <ul>
+          <li class="hme-footer-section-li--title">FOLLOW US</li>
+          <li class="hme-footer-section-li--link">
+            <a href="https://www.facebook.com/FitMe/" target="_blank" onclick="_ga('HomePage', 'Social', 'FB Footer Homepage')">
+              <img src="https://s3-ap-southeast-1.amazonaws.com/FitMe-prod/home_website/img/Icon-facebook_2.png" alt="facebook" title="FitMe facebook" class="footer-small-social-icon social-facebook">
+            </a>
+            <a href="https://twitter.com/FitMe" target="_blank" onclick="_ga('HomePage', 'Social', 'Twitter Footer Homepage')">
+              <img src="https://s3-ap-southeast-1.amazonaws.com/FitMe-prod/home_website/img/Icon-twitter_1.png" alt="twitter" title="FitMe twitter" class="footer-small-social-icon social-twitter">
+            </a>
+            <a href="https://www.youtube.com/channel/UCVpKsV04t5WzWJcxqRax7rA" target="_blank" onclick="_ga('HomePage', 'Social', 'Youtube Footer Homepage')">
+              <img src="https://s3-ap-southeast-1.amazonaws.com/FitMe-prod/home_website/img/youtube-icon.png" alt="youtube" title="FitMe youtube" class="footer-small-social-icon social-youtube">
+            </a>
+            <a href="https://www.instagram.com/explore/tags/FitMe/" target="_blank" onclick="_ga('HomePage', 'Social', 'Instagram Footer Homepage')">
+              <img src="https://s3-ap-southeast-1.amazonaws.com/FitMe-prod/home_website/img/instagram (1).png" alt="instagram" title="FitMe instagram" class="footer-small-social-icon social-instagram">
+            </a>
+          </li>
+          <li class="hme-footer-section-li--link">
+            <a href="https://play.google.com/store/apps/details?id=com.FitMe.basic&hl=en" target="_blank" onclick="_ga('HomePage', 'App Download', 'Android Footer Homepage')">
+              <img src="/static/img/home/googleplay_white.12ace1702614.png" class="get-app-now--footer-image" alt="FitMe android app" title="FitMe dashboard" />
+            </a>
+          </li>
+          <li class="hme-footer-section-li--link">
+            <a href="https://itunes.apple.com/in/app/FitMe-weight-loss-coach/id943712366?mt=8" target="_blank" onclick="_ga('HomePage', 'App Download', 'iOS Footer Homepage')">
+              <img src="/static/img/home/appstore_white.be07fee1a703.png" class="get-app-now--footer-image" alt="FitMe ios app" title="FitMe dashboard" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+  <section class="hme-copyright-section">
+    <div class="row">
+      <hr />
+      <h6 class="hme-copyright">Copyright © FitMe private limited</h6>
+      <div>
+  </section>
+
+  <link rel="stylesheet" type="text/css" href="{% static '/css/privacy_popup.css' %}" defer>
+
+  <div id="popup-wrapper">
+    <p id="popup-text">
+      We use cookies and other tracking technologies to improve your browsing experience on our website
+      <b id="read-more">Read More</b>
+    </p>
+    <button id="accept-btn">CLOSE AND ACCEPT</button>
+  </div>
+
+  <script src="{% static '/js/privacy_popup.js' %}" defer></script>
+
+  <!-- jQuery first, then Bootstrap JS, Intercom, Home js -->
+  <script src="{% static '/js/jquery.min.js' %}" defer></script>
+  <script src="{% static '/js/bootstrap.min.js' %}" defer></script>
+  <script src="{% static '/js/swiper.min.js' %}" defer></script>
+  <script src="{% static '/js/home.min.js' %}" defer></script>
+  <script src="{% static '/js/wrapper.js' %}" defer></script>
+  <!--<script src="{% static '/js/intercom.js' %}" defer></script>-->
+  <script type="text/javascript" src="{% static '/js/landing_page.js' %}" defer></script>
+</body>
+
+</html>

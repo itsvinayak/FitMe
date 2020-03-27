@@ -1,0 +1,135 @@
+{% load static %}
+
+<html>
+    <head>
+          <link rel="apple-touch-icon" sizes="180x180" href="{% static '/img/apple-touch-icon.png' %}">
+          <link rel="icon" type="image/png" sizes="32x32" href="{% static '/img/favicon-32x32.png' %}">
+          <link rel="icon" type="image/png" sizes="16x16" href="{% static '/img/favicon-16x16.png' %}">
+          <link rel="manifest" href="{% static '/img/site.webmanifest' %}">
+          <title>FitMe</title>
+          <link rel="icon" type="image/png" href="{% static '/img/logo.png' %}"/>
+          <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+          <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <style>
+            .register
+            {
+                background: -webkit-linear-gradient(left, #659DBA, #DAAD86);
+                margin-top: 1%;
+                padding: 3%;
+                border-radius: 5%;
+            }
+            .register-left
+            {
+                text-align: center;
+                color: #fff;
+                margin-top: 4%;
+            }
+            .register-right
+            {
+                background: #f8f9fa;
+                border-top-left-radius: 10% 50%;
+                border-top-right-radius: 10% 50%;
+                border-bottom-left-radius: 10% 50%;
+                border-bottom-right-radius: 10% 50%;
+            }
+            .register-left img
+            {
+                margin-top: 15%;
+                margin-bottom: 5%;
+                width: 80%;
+                height: 20%;
+                -webkit-animation: mover 2s infinite  alternate;
+                animation: mover 1s infinite  alternate;
+            }
+            .register-left p
+            {
+                font-weight: lighter;
+                padding: 12%;
+                margin-top: -9%;
+            }
+            .register .register-form
+            {
+                padding: 9%;
+                margin-top: -5%;
+                margin-bottom: -5%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="reg" class="container register">
+            <div class="row">
+                <div class="col-md-3 register-left">
+                    <img src="{% static '/img/logo.png' %}" alt="logo"/>
+                    <h3>Welcome</h3>
+                </div>
+                <div class="col-md-9 register-right">
+                    <div class="row register-form">
+                        <form method="post">
+                            {% csrf_token %}
+                            <!-- <div class="form-group">
+                                <input type="text" class="form-control" style="width:300px;" placeholder="First Name" name ="fname"  required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" style="width:300px;" placeholder="Last Name" name="lname" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" style="width:300px;" placeholder="Email" name="email" required/>
+                            </div>
+                            <div class="form-row form-group">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="inlineCheckbox1" name="gender" value="male" />
+                                    <label class="form-check-label" for="inlineCheckbox1">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="inlineCheckbox2" name="gender" value="female"/>
+                                    <label class="form-check-label" for="inlineCheckbox2">Female</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <div class="flex">
+                                        <select class="dark-field w-input isd-prefix form-control isdcode" id="isdcode" name="isdcode">
+                                            <option value="+91">+91</option>
+                                            <option value="+1">+1</option>
+                                            <option value="+65">+65</option>
+                                            <option value="+44">+44</option>
+                                            <option value="+971">+971</option>
+                                            <option value="+968">+968</option>
+                                            <option value="+973">+973</option>
+                                            <option value="+965">+965</option>
+                                            <option value="+966">+966</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <input type="mobile" maxlength="10" minlength="10" class="form-control"  placeholder="Phone" name="num" required/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="date" name="date" class="form-control" id="datepicker" min="1950-01-01" max="2019-12-31" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password" style="width:300px;" name="password" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Confirm Password" style="width:300px;" name="cpassword" />
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="Height in cm" style="width:300px;" name="Height" />
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="weight" style="width:300px;" name="weight" />
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <button type="submit" class="btn btn-outline-danger">Sign up</button>
+                                </div>
+                            </div>
+                        </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

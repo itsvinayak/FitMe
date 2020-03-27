@@ -1,0 +1,88 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<html>
+
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static '/img/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static '/img/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static '/img/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static '/img/site.webmanifest' %}">
+  <title>FitMe</title>
+  <link rel="icon" type="image/png" href="{% static '/img/logo.png' %}" />
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+    .register {
+      background: -webkit-linear-gradient(left, #659DBA, #DAAD86);
+      margin-top: 1%;
+      padding: 3%;
+      border-radius: 5%;
+    }
+
+    .register-left {
+      text-align: center;
+      color: #fff;
+      margin-top: 4%;
+    }
+
+    .register-right {
+      background: #f8f9fa;
+      border-top-left-radius: 10% 50%;
+      border-top-right-radius: 10% 50%;
+      border-bottom-left-radius: 10% 50%;
+      border-bottom-right-radius: 10% 50%;
+    }
+
+    .register-left img {
+      margin-top: 15%;
+      margin-bottom: 5%;
+      width: 80%;
+      height: 20%;
+      -webkit-animation: mover 2s infinite alternate;
+      animation: mover 1s infinite alternate;
+    }
+
+    .register-left p {
+      font-weight: lighter;
+      padding: 12%;
+      margin-top: -9%;
+    }
+
+    .register .register-form {
+      padding: 9%;
+      margin-top: -5%;
+      margin-bottom: -5%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="reg" class="container register">
+    <div class="row">
+      <div class="col-md-3 register-left">
+        <img src="{% static '/img/logo.png' %}" alt="logo" />
+        <h3>Welcome</h3>
+      </div>
+      <div class="col-md-9 register-right">
+        <div class="row register-form">
+          <form method="POST" style="border: 1px solid black; padding:10%; width:100%; border-radius:1%;">
+            {% csrf_token %}
+            <fieldset class="form-group">
+              {{ form |crispy }}
+              {{ tform|crispy }}
+            </fieldset>
+            <center>
+              <button class="btn btn-primary" type="submit" style="width:60%;"> sign up</button>
+            </center>
+            <br />
+            <sub><a href="{% url "index" %}" >Already have an account ?</a></sub>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
