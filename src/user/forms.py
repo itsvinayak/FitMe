@@ -14,7 +14,7 @@ class TraineeRegisterForm(ModelForm):
         model = Trainee
         fields = ['count_code','phone']
 
-# class TrainerRegisterForm(ModelForm):
-#     class Meta:
-#         model = Trainer
-#         fields = ['username','email', 'first_name', 'last_name','password1', 'password2']
+class TrainerRegisterForm(ModelForm):
+    class Meta:
+        model = Trainer
+        fields = []

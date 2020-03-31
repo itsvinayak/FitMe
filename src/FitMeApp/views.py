@@ -16,16 +16,18 @@ def home(request):
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
-        trainer = [x for x in Trainer.objects.filter(user__username=str(username),approve=True)]
+        try:
+            trainer = Trainer.objects.get(user=user)
+        except:
+            trainer = None
 
-        print(trainer)
         if user is not None:
-            if trainer != []:
-                form = login(request, user)
+            if trainer is not None:
+                login(request, user)
                 messages.success(request, f" wecome {username} !!")
                 return render(request, 'TrainerDashBoard.html', {'user': username})
             else:
-                form = login(request, user)
+                login(request, user)
                 messages.success(request, f" wecome {username} !!")
                 return render(request, 'first.html', {'user': username})
 

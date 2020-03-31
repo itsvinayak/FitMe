@@ -22,11 +22,10 @@ def TraineeRegister(request):
         form = UserRegisterForm(request.POST)
         Tform = TraineeRegisterForm(request.POST)
         if form.is_valid() and Tform.is_valid():
-            try:
-                form.save()
-                Tform.save()
-            except:
-                pass
+            user = form.save()
+            profile = Tform.save(commit=False)
+            profile.user = user
+            profile.save()
 
             username = form.cleaned_data.get("username")
             email = form.cleaned_data.get("email")
@@ -60,13 +59,12 @@ def TrainerRegister(request):
     #TrainerRegisterForm
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
-        Tform = UserRegisterForm(request.POST)
+        Tform = TrainerRegisterForm(request.POST)
         if form.is_valid() and Tform.is_valid():
-            try:
-                form.save()
-                Tform.save()
-            except:
-                pass
+            user = form.save()
+            profile = Tform.save(commit=False)
+            profile.user = user
+            profile.save()
 
             username = form.cleaned_data.get("username")
             email = form.cleaned_data.get("email")
@@ -89,7 +87,7 @@ def TrainerRegister(request):
             return redirect("index")
     else:
         form = UserRegisterForm()
-        Tform = UserRegisterForm()
+        Tform = TrainerRegisterForm()
 
     return render(request, "user/register.html", {"form": form,'tform':Tform})
 

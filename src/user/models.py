@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
-
-
-
+from PIL import Image
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Trainer(models.Model):
@@ -19,7 +19,6 @@ class Trainer(models.Model):
 
 
 
-
 class Trainee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     trainee = models.BooleanField('trainee', default=True)
@@ -28,42 +27,54 @@ class Trainee(models.Model):
     phone = models.CharField(max_length=11,unique=True)
     dob = models.DateField(default=datetime.now)
     gender = models.CharField(max_length=6,default='Male')
+    image = models.ImageField(
+        default="profile_pics/default.jpg", upload_to="profile_pics"
+    )
 
     def __str__(self):
-       return f"{self.user.username} profile details"
+        return f"{self.user.username} Profile"
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.image.path)
+        width, height = img.size
+        if height >= 300 or width >= 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
     class Meta:
         db_table = "trainee"
 
 
-
-class TraineeAddress(models.Model):
-    house_no = models.IntegerField()
-    street_no = models.IntegerField()
-    village = models.CharField(max_length=30)
-    post = models.CharField(max_length=30)
-    dist_city = models.CharField(max_length=30)
-    state = models.CharField(max_length=30)
-    country = models.CharField(max_length=30)
-    pincode = models.IntegerField()
-
-    def __str__(self):
-       return f"{self.user.username} 's address"
-
-    class Meta:
-        db_table = "trainee_address"
-
-
-
-class TraineePhy(models.Model):
-    height = models.DecimalField(max_digits=3, decimal_places=2)
-    age = models.IntegerField()
-    current_weight = models.DecimalField(max_digits=3, decimal_places=2)
-    goal_weight = models.DecimalField(max_digits=3, decimal_places=2)
-    health_condition = models.CharField(max_length=50)
-
-    def __str__(self):
-       return f"{self.user.username} trainee phyk"
-
-    class Meta:
-        db_table = "trainee_phy"
+#
+# class TraineeAddress(models.Model):
+#     house_no = models.IntegerField()
+#     street_no = models.IntegerField()
+#     village = models.CharField(max_length=30)
+#     post = models.CharField(max_length=30)
+#     dist_city = models.CharField(max_length=30)
+#     state = models.CharField(max_length=30)
+#     country = models.CharField(max_length=30)
+#     pincode = models.IntegerField()
+#
+#     def __str__(self):
+#        return f"{self.user.username} 's address"
+#
+#     class Meta:
+#         db_table = "trainee_address"
+#
+#
+#
+# class TraineePhy(models.Model):
+#     height = models.DecimalField(max_digits=3, decimal_places=2)
+#     age = models.IntegerField()
+#     current_weight = models.DecimalField(max_digits=3, decimal_places=2)
+#     goal_weight = models.DecimalField(max_digits=3, decimal_places=2)
+#     health_condition = models.CharField(max_length=50)
+#
+#     def __str__(self):
+#        return f"{self.user.username} trainee phyk"
+#
+#     class Meta:
+#         db_table = "trainee_phy"
