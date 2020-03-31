@@ -3,6 +3,4 @@ from .models import *
 
 
 admin.site.register(Trainee)
-admin.site.register(TraineePhy)
-admin.site.register(TraineeAddress)
 admin.site.register(Trainer)

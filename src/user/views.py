@@ -17,7 +17,7 @@ from django.template import Context
 
 
 ########### register here #####################################
-def register(request):
+def TraineeRegister(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         Tform = TraineeRegisterForm(request.POST)
@@ -57,9 +57,10 @@ def register(request):
 ############################## TrainerRegister ###############################################
 
 def TrainerRegister(request):
+    #TrainerRegisterForm
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
-        Tform = TrainerRegisterForm(request.POST)
+        Tform = UserRegisterForm(request.POST)
         if form.is_valid() and Tform.is_valid():
             try:
                 form.save()
@@ -88,6 +89,11 @@ def TrainerRegister(request):
             return redirect("index")
     else:
         form = UserRegisterForm()
-        Tform = TrainerRegisterForm()
+        Tform = UserRegisterForm()
 
     return render(request, "user/register.html", {"form": form,'tform':Tform})
+
+################################## upadte ####################################
+
+def update(request):
+    pass

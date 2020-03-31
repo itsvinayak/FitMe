@@ -3,14 +3,16 @@ from django.contrib.auth.models import User
 from datetime import datetime
 
 
+
+
+
 class Trainer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     trainer = models.BooleanField('trainer', default=True)
     approve = models.BooleanField(default=False)
-    phone = models.CharField(max_length=11,unique=True)
 
     def __str__(self):
-       return f"{self.user.username} profile details"
+       return self.user.username
 
     class Meta:
         db_table = "trainer"
@@ -21,6 +23,7 @@ class Trainer(models.Model):
 class Trainee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     trainee = models.BooleanField('trainee', default=True)
+    trainer_ass = models.OneToOneField(Trainer,null=True,on_delete=models.SET_NULL)
     count_code = models.CharField(max_length=3)
     phone = models.CharField(max_length=11,unique=True)
     dob = models.DateField(default=datetime.now)
@@ -35,7 +38,6 @@ class Trainee(models.Model):
 
 
 class TraineeAddress(models.Model):
-    user = models.OneToOneField(Trainee, on_delete=models.CASCADE)
     house_no = models.IntegerField()
     street_no = models.IntegerField()
     village = models.CharField(max_length=30)
@@ -54,7 +56,6 @@ class TraineeAddress(models.Model):
 
 
 class TraineePhy(models.Model):
-    user = models.OneToOneField(Trainee, on_delete=models.CASCADE)
     height = models.DecimalField(max_digits=3, decimal_places=2)
     age = models.IntegerField()
     current_weight = models.DecimalField(max_digits=3, decimal_places=2)

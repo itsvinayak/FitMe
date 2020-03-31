@@ -12,16 +12,20 @@ from user.models import Trainer
 
 
 def home(request):
-    trainer = Trainer.objects.filter(approve=True)
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
+        trainer = [x for x in Trainer.objects.filter(user__username=str(username),approve=True)]
+
+        print(trainer)
         if user is not None:
-            form = login(request, user)
-            if username in trainer :
-                pass
+            if trainer != []:
+                form = login(request, user)
+                messages.success(request, f" wecome {username} !!")
+                return render(request, 'TrainerDashBoard.html', {'user': username})
             else:
+                form = login(request, user)
                 messages.success(request, f" wecome {username} !!")
                 return render(request, 'first.html', {'user': username})
 
