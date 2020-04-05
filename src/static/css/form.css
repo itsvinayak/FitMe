@@ -1,0 +1,29 @@
+.isd-prefix{
+    width: 30%;
+    padding: 8px 4px;
+}
+
+.flex {
+    display: flex;
+}
+
+.lead-form-toast{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: black;
+    padding: 1em;
+    z-index: 9;
+}
+
+@media (max-width: 360px) {
+    .hero-cta-form.w-form{
+        padding: 10px;
+    }
+}
+
+.full-submit-button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }

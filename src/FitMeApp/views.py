@@ -15,17 +15,16 @@ def home(request):
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
+        
         user = authenticate(request, username=username, password=password)
-        try:
-            trainer = Trainer.objects.get(user=user)
-        except:
-            trainer = None
-
         if user is not None:
-            if trainer is not None:
-                login(request, user)
-                messages.success(request, f" wecome {username} !!")
-                return render(request, 'TrainerDashBoard.html', {'user': username})
+            if request.user.trainer :
+                if request.user.trainer.approve:
+                    login(request, user)
+                    messages.success(request, f" wecome {username} !!")
+                    return render(request, 'TrainerDashBoard.html', {'user': username})
+                else:
+                    messages.success(request, f" wecome {username} please ask admin to approve !!")
             else:
                 login(request, user)
                 messages.success(request, f" wecome {username} !!")

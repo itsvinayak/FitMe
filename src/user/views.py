@@ -93,5 +93,19 @@ def TrainerRegister(request):
 
 ################################## upadte ####################################
 
-def update(request):
-    pass
+@login_required
+def TraineeProfileUpdate(request):
+    if request.method == "POST":
+        form = TraineeUpdateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"profile is updated")
+            return redirect("profile")
+            
+    form = TraineeUpdateForm(instance=request.user.trainee)
+
+    data = {
+        "form": form,
+        "title": "profile update for {}".format(request.user),
+    }
+    return render(request, "user/TraineeProfileUpdate.html", data)

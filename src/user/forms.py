@@ -12,9 +12,19 @@ class UserRegisterForm(UserCreationForm):
 class TraineeRegisterForm(ModelForm):
     class Meta:
         model = Trainee
-        fields = ['count_code','phone']
+        fields = ['phone']
 
 class TrainerRegisterForm(ModelForm):
     class Meta:
         model = Trainer
         fields = []
+
+class TraineeUpdateForm(ModelForm):
+    class Meta:
+        model = Trainee
+        fields = '__all__'
+
+class TrainerUpdateForm(ModelForm):
+    class Meta:
+        model = Trainer
+        fields = '__all__'

@@ -2,17 +2,28 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
 from PIL import Image
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+
 
 
 class Trainer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     trainer = models.BooleanField('trainer', default=True)
     approve = models.BooleanField(default=False)
+    image = models.ImageField(
+        default="profile_pics/default.jpg", upload_to="profile_pics"
+    )
 
     def __str__(self):
-       return self.user.username
+        return f"{self.user.username} Profile"
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.image.path)
+        width, height = img.size
+        if height >= 300 or width >= 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
 
     class Meta:
         db_table = "trainer"
@@ -23,7 +34,6 @@ class Trainee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     trainee = models.BooleanField('trainee', default=True)
     trainer_ass = models.OneToOneField(Trainer,null=True,on_delete=models.SET_NULL)
-    count_code = models.CharField(max_length=3)
     phone = models.CharField(max_length=11,unique=True)
     dob = models.DateField(default=datetime.now)
     gender = models.CharField(max_length=6,default='Male')
@@ -45,6 +55,7 @@ class Trainee(models.Model):
 
     class Meta:
         db_table = "trainee"
+
 
 
 #

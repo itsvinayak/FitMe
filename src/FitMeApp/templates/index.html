@@ -1858,6 +1858,14 @@
     <button id="accept-btn">CLOSE AND ACCEPT</button>
   </div>
 
+  {% if messages %}
+  {% for message in messages %}
+
+     <script>  alert("{{ message }}") ; </script>
+
+  {% endfor %}
+  {% endif %}
+
   <script src="{% static '/js/privacy_popup.js' %}" defer></script>
 
   <!-- jQuery first, then Bootstrap JS, Intercom, Home js -->

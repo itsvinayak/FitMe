@@ -22,9 +22,17 @@
 
   {% block head %}
   {% endblock %}
-  <title> </title>
+  <title>{{title}}</title>
 </head>
 <body>
+
+  {% if messages %}
+  {% for message in messages %}
+
+     <script>  alert("{{ message }}") ; </script>
+
+  {% endfor %}
+  {% endif %}
 
   <div id="wrapper"> 
   <!-- start header -->

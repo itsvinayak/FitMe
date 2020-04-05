@@ -1,0 +1,10 @@
+{% extends 'base1.html' %}
+
+{% block  body %}
+
+<form>
+{% csrf_token %} 
+{{form.as_p}}
+<input type="sumbit" class="btn btn-danger"/>
+</form>
+{% endblock %}

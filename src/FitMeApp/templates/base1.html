@@ -52,6 +52,14 @@
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
+  {% if messages %}
+  {% for message in messages %}
+
+     <script>  alert("{{ message }}") ; </script>
+
+  {% endfor %}
+  {% endif %}
 <div class="wrapper">
 
   <header class="main-header">
