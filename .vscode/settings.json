@@ -1,3 +1,16 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.dontShowNewVersionMessage": true,
+    "python.pythonPath": "../env/bin/python",
+    "workbench.startupEditor": "newUntitledFile",
+    "files.autoSave": "afterDelay",
+    "explorer.confirmDragAndDrop": false,
+    "[python]": {},
+    "workbench.sideBar.location": "left",
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": -1,
+    "editor.fontSize": 18,
+    "terminal.integrated.fontSize":20,
+    "terminal.integrated.letterSpacing": -1,
 }
