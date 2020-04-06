@@ -13,7 +13,7 @@ from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
-
+from django.conf import settings
 
 
 ########### register here #####################################
@@ -32,7 +32,7 @@ def TraineeRegister(request):
             ######################### mail system ####################################
             htmly = get_template("user/Email.html")
             d = {"username": username}
-            subject, from_email, to = "welcome to FitMe", "itssvinayak@gmail.com", email
+            subject, from_email, to = "welcome to FitMe", "settings.EMAIL_HOST_USER", email
             html_content = htmly.render(d)
             msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
@@ -71,7 +71,7 @@ def TrainerRegister(request):
             ######################### mail system ####################################
             htmly = get_template("user/Email.html")
             d = {"username": username}
-            subject, from_email, to = "welcome to FitMe", "itssvinayak@gmail.com", email
+            subject, from_email, to = "welcome to FitMe", "settings.EMAIL_HOST_USER", email
             html_content = htmly.render(d)
             msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
@@ -106,6 +106,16 @@ def TraineeProfileUpdate(request):
 
     data = {
         "form": form,
+        "profile_pic":request.user.trainee.image.url,
         "title": "profile update for {}".format(request.user),
     }
     return render(request, "user/TraineeProfileUpdate.html", data)
+
+############################## Trainee Profile #####################################
+
+@login_required
+def TraineeProfile(request):
+    data={
+        "profile_pic":request.user.trainee.image.url,
+    }
+    return render(request,"user/profile.html",data)

@@ -1,0 +1,22 @@
+{% extends 'base1.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block body %}
+
+
+<h1 style="letter-spacing:2px; margin:8px;" class="row"> Trainee to manage </h1>
+
+<br/>
+
+<form method="post">
+  {% csrf_token %}
+  {{form.note|as_crispy_field }}
+  {{form.task_to_give|as_crispy_field }}
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

@@ -4,4 +4,14 @@
 
 {% block body %}
 
+
+<h1 style="letter-spacing:2px; margin:8px;" class="row"> Trainee to manage </h1>
+
+<br/>
+{% for i in trainee %}
+<div style=" border: 1px solid black; margin: 2px; padding: 30px;" class="row">
+<span style="font-size: 2.8rem; font-weight:bolder;" class="col-md-4 col-sm-4">{{i.user.username}}</span><span style="font-size: 2.8rem; font-weight:bolder;" class="text-muted col-md-4 col-sm-4">{{i.email}}</span><span  class="col-md-4 col-sm-4"><a href="{% url "giveTask" i.user.username %}" class="btn btn-danger" style="width:100%;">task</a></div>
+</div>
+{% endfor %}
+
 {% endblock %}

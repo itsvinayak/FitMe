@@ -9,5 +9,5 @@ urlpatterns = [
     path('logout/',auth.LogoutView.as_view(template_name='index.html'),name='logout'),
     path('TraineeRegister/',views.TraineeRegister,name='TraineeRegister'),
     path('TraineeProfileUpdate/',views.TraineeProfileUpdate,name='TraineeProfileUpdate'),
-    # path('TraineeProfile/',views.TraineeProfile,name='TraineeProfile')
+    path('TraineeProfile/',views.TraineeProfile,name='TraineeProfile'),
 ]
