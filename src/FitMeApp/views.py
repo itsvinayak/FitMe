@@ -102,6 +102,12 @@ def giveTask(request, username):
     return render(request, "task.html", data)
 
 
+@login_required
+def seetask(request):
+    data = {"task": Task.objects.filter(person=Trainee.objects.get(user=request.user))}
+    return render(request, "seetask.html", data)
+
+
 def about(request):
     return render(request, "about.html")
 
