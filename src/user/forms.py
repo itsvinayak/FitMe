@@ -22,7 +22,7 @@ class TrainerRegisterForm(ModelForm):
 class TraineeUpdateForm(ModelForm):
     class Meta:
         model = Trainee
-        fields = '__all__'
+        exclude = ('trainee','user')
 
 class TrainerUpdateForm(ModelForm):
     class Meta:

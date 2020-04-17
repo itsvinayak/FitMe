@@ -42,9 +42,13 @@ def home(request):
                     )
             else:
                 login(request, user)
-                task = Task.objects.filter(
-                    person=Trainee.objects.get(user=request.user)
-                )
+                try:
+                    task = Task.objects.filter(
+                        person=Trainee.objects.get(user=request.user)
+                    )
+                except:
+                    task = None
+
                 data = {
                     "task": task,
                 }
@@ -73,7 +77,12 @@ def home(request):
                     request, f" wecome {username} please ask admin to approve !!"
                 )
         else:
-            task = Task.objects.filter(person=Trainee.objects.get(user=request.user))
+            try:
+                task = Task.objects.filter(
+                    person=Trainee.objects.get(user=request.user)
+                )
+            except:
+                task = None
             data = {
                 "task": task,
             }
@@ -104,7 +113,8 @@ def giveTask(request, username):
 
 @login_required
 def seetask(request):
-    data = {"task": Task.objects.filter(person=Trainee.objects.get(user=request.user))}
+    data = {"task": Task.objects.filter(
+        person=Trainee.objects.get(user=request.user))}
     return render(request, "seetask.html", data)
 
 
