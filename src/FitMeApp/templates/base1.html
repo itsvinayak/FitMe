@@ -97,7 +97,7 @@
 											<!-- start message -->
 											<a href="#">
 												<div class="pull-left">
-													<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+													<img src="dist/img/user2-160x160.jpg" class="img-circle" height="100px" width="100px" style="border:4px solid gray; border-radius:50%;"alt="User Image">
 												</div>
 												<h4>
 													Support Team
@@ -465,9 +465,9 @@
 				<div class="user-panel">
 					<div class="pull-left image">
 						{% if user.trainee %}
-						<img src="{{user.trainee.image.url}}" class="img-circle" alt="User Image">
+						<img src="{{user.trainee.image.url}}"   style="border-radius:50%; height:50px!important; width:100%!important;" class="img-circle" alt="User Image">
 						{% elif user.trainer %}
-						<img src="{{user.trainer.image.url}}" class="img-circle" alt="User Image">
+						<img src="{{user.trainer.image.url}}"   style="border-radius:50%; height:50px!important; width:100%!important;" class="img-circle" alt="User Image">
 						{% endif %}
 
 

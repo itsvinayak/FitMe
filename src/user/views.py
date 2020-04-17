@@ -91,15 +91,15 @@ def TrainerRegister(request):
 
     return render(request, "user/register.html", {"form": form,'tform':Tform})
 
-################################## upadte ####################################
+################################## update ####################################
 
 @login_required
 def TraineeProfileUpdate(request):
     if request.method == "POST":
-        form = TraineeUpdateForm(request.POST, instance=request.user)
+        form = TraineeUpdateForm(request.POST,instance=request.user.trainee)
         print(form.errors)
         if form.is_valid():
-            form.save(commit=False)
+            form.save()
             messages.success(request, f"profile is updated")
             return redirect("TraineeProfile")
 

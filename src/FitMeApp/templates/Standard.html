@@ -6,12 +6,16 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{% static '/img/favicon-16x16.png' %}">
         <link rel="manifest" href="{% static '/img/site.webmanifest' %}">
         <title>FitMe</title>
-        
+
     <style>
-     body {
+    body{
     color: black;
-    height:400px;
+    overflow: hidden;
+    height:100%;
     background-image:url("{% static '/img/up.jpg' %}");
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-size: cover;
     backgroud-attachment:fixed;
     width:100%;
     background-repeat:no-repeat;
@@ -19,19 +23,21 @@
     padding:0;
 }
 form {
-    opacity:0.8;
-    background-color: transparent;
+    opacity:0.9;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
     display: inline-block;
     box-sizing: border-box;
     margin: 140px 510px;
-    height:100%;
+      height:400px;
     box-shadow: 2px 2px 20px 5px black;
     padding: 10px;
     width:100%;
     max-width: 400px;
 }
 input {
-    box-shadow: 1px 1px 3px 1px black;
+    border:0px;
     width: 100%;
     text-align: center;
 }
@@ -55,16 +61,16 @@ width:99%;
     color: white;
     background-color: #EF4437;
     margin-left:1px;
-    padding: 3px;
+    padding: 5px;
     border: 0;
     font-weight: bold;
     width:380px;
 }
 .submit:hover {
-    color:#EF4437;
-    background-color: white;
-    font-size: 0.7em;
-    font-weight: bold;
+
+    background-color: lightblue;
+    color:white;
+
 }
 #heightunits
 {
@@ -138,7 +144,9 @@ document.getElementById("bb").innerHTML ="Your BMI is absolutely normal";
             <p id="result">Here will be your result</p>
             <p id="bb">Here will be your result</p>
           <br><br><br>
+          <center>
 		  <br><a href="{% url 'bmimetric' %}" style="color:black"><b><u>Click here if you want to use Metric Calculator</u></b></a>
+    </center>
 		  </form>
 		  </body>
 		  </html>

@@ -33,7 +33,7 @@ class Trainer(models.Model):
 class Trainee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     trainee = models.BooleanField('trainee', default=True)
-    trainer_ass = models.OneToOneField(Trainer,null=True,on_delete=models.SET_NULL)
+    trainer_ass = models.ForeignKey(Trainer,null=True,on_delete=models.SET_NULL)
     phone = models.CharField(max_length=11,unique=True)
     dob = models.DateField(default=datetime.now)
     gender = models.CharField(max_length=6,default='Male')

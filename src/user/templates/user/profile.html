@@ -5,18 +5,18 @@
    <h1> welcome, {{user.username}} </h1>
    <center>
    {% if user.trainee %}
-   <img class="img-circle" src="{{user.trainee.image.url}}"  style="border:4px solid gray"/>
+   <img class="img-circle" src="{{user.trainee.image.url}}" height="200px" width="200px" style="border:4px solid gray; border-radius:50%;"/>
    {% elif user.trainer %}
-   <img src="{{user.trainer.image.url}}" class="img-circle" style="border:4px solid gray">
+   <img src="{{user.trainer.image.url}}" class="img-circle" height="200px" width="200px" style="border:4px solid gray; border-radius:50%;">
    {% endif %}
    </center>
-      <div class="info">
+      <div class="info" style="font-size:2rem;">
         <h1 class="item-title">about</h1>
         <hr style="border: 1px solid black;" width="50%" align="left" />
-        <div class="item"><b>name : </b>{{user.first_name}} {{user.last_name}}</div>
-        <div class="item"><b>email : </b>{{user.email}}</div>
-        <div class="item"><b>phone : </b>{{user.trainee.phone}}</div>
-        <div class="item"><b>trainer :</b>{{user.ttrainee.trainer_ass}}
+        <div class="item"><b>name : </b> {{user.first_name}} {{user.last_name}}</div>
+        <div class="item"><b>email : </b>  {{user.email}}</div>
+        <div class="item"><b>phone : </b> {{user.trainee.phone}}</div>
+        <div class="item"><b>trainer :</b> {{user.trainee.trainer_ass}}
         <hr />
       </div>
       <div>
