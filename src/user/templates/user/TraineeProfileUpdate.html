@@ -2,9 +2,9 @@
 {% load crispy_forms_tags %}
 {% block  body %}
 
-<form>
+<form method="post">
 {% csrf_token %}
 {{form|crispy}}
-<input type="sumbit" class="btn btn-danger"/>
+<button class="btn btn-danger">update</button>
 </form>
 {% endblock %}

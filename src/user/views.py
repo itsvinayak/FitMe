@@ -97,11 +97,12 @@ def TrainerRegister(request):
 def TraineeProfileUpdate(request):
     if request.method == "POST":
         form = TraineeUpdateForm(request.POST, instance=request.user)
+        print(form.errors)
         if form.is_valid():
-            form.save()
+            form.save(commit=False)
             messages.success(request, f"profile is updated")
-            return redirect("profile")
-            
+            return redirect("TraineeProfile")
+
     form = TraineeUpdateForm(instance=request.user.trainee)
 
     data = {

@@ -1,7 +1,7 @@
 {% extends 'base1.html' %}
 
 {% block body %}
-   
+
    <h1> welcome, {{user.username}} </h1>
    <center>
    {% if user.trainee %}
@@ -9,13 +9,17 @@
    {% elif user.trainer %}
    <img src="{{user.trainer.image.url}}" class="img-circle" style="border:4px solid gray">
    {% endif %}
-   </center>    
+   </center>
       <div class="info">
         <h1 class="item-title">about</h1>
         <hr style="border: 1px solid black;" width="50%" align="left" />
         <div class="item"><b>name : </b>{{user.first_name}} {{user.last_name}}</div>
         <div class="item"><b>email : </b>{{user.email}}</div>
-        <div class="item"><b>phone : </b>{{user.user_details.phone_no}}</div>
+        <div class="item"><b>phone : </b>{{user.trainee.phone}}</div>
+        <div class="item"><b>trainer :</b>{{user.ttrainee.trainer_ass}}
         <hr />
       </div>
+      <div>
+      <a href="{% url 'TraineeProfileUpdate' %}" class="btn btn-danger btn-outline-default"> update </a>
+     </div>
 {% endblock %}
