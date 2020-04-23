@@ -88,16 +88,8 @@
   </script>
   <script>
     window.onload = function() {
-      var weight = {
-        {
-          user.trainee.current_weight
-        }
-      };
-      var height = {
-        {
-          user.trainee.height
-        }
-      };
+      var weight = {{ user.trainee.current_weight }};
+      var height = {{ user.trainee.height }};
 
       var h1 = height * 12;
       var w2 = weight * 2.205;

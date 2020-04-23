@@ -108,6 +108,12 @@ def seetask(request):
     data = {"task": Task.objects.filter(person=Trainee.objects.get(user=request.user))}
     return render(request, "seetask.html", data)
 
+@login_required
+def doneTask(request,id):
+    Task.objects.get(id=id).task_complete = True
+    data = {"task": Task.objects.filter(person=Trainee.objects.get(user=request.user))}
+    return render(request, "seetask.html", data)
+
 
 def about(request):
     return render(request, "about.html")

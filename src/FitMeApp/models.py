@@ -36,6 +36,7 @@ class Task(models.Model):
     person = models.ForeignKey(
         Trainee, on_delete=models.CASCADE, unique=False, default=""
     )
+    task_complete = models.BooleanField(default=False)
     note = models.TextField()
     task_to_give = models.CharField(max_length=50, choices=task_list)
 
