@@ -32,9 +32,7 @@ def home(request):
                     login(request, user)
                     messages.success(request, f" wecome {username} !!")
                     trainee = Trainee.objects.filter(trainer_ass=trainer)
-                    data = {
-                        "trainee": trainee,
-                    }
+                    data = {"trainee": trainee}
                     return render(request, "TrainerDashBoard.html", data)
                 else:
                     messages.success(
@@ -49,9 +47,7 @@ def home(request):
                 except:
                     task = None
 
-                data = {
-                    "task": task,
-                }
+                data = {"task": task}
                 messages.success(request, f" wecome {username} !!")
                 return render(request, "first.html")
 
@@ -68,9 +64,7 @@ def home(request):
         if trainer:
             if trainer.approve:
                 trainee = Trainee.objects.filter(trainer_ass=trainer)
-                data = {
-                    "trainee": trainee,
-                }
+                data = {"trainee": trainee}
                 return render(request, "TrainerDashBoard.html", data)
             else:
                 messages.success(
@@ -83,9 +77,7 @@ def home(request):
                 )
             except:
                 task = None
-            data = {
-                "task": task,
-            }
+            data = {"task": task}
             return render(request, "first.html", data)
 
 
@@ -113,8 +105,7 @@ def giveTask(request, username):
 
 @login_required
 def seetask(request):
-    data = {"task": Task.objects.filter(
-        person=Trainee.objects.get(user=request.user))}
+    data = {"task": Task.objects.filter(person=Trainee.objects.get(user=request.user))}
     return render(request, "seetask.html", data)
 
 

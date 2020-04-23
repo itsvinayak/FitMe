@@ -12,56 +12,47 @@
 {% block body %}
 
 
-{% comment %}
-<!-- Small boxes (Stat box) -->
-<div class="row">
-  <div class="col-lg-3 col-xs-6">
-    <!-- small box -->
-    <div class="small-box bg-aqua">
-      <div class="inner">
-        <h3>150</h3>
 
+{% if user.trainee %}
+<!-- Small boxes (Stat box) -->
+<div class="row" onload="bmi()">
+  <div class="col-lg-3 col-md-6 col-xs-6">
+    <!-- small box -->
+    <div class="small-box bg-aqua" style="border: 1px solid black">
+      <div class="inner">
+        <h3>{{ user.trainee.current_weight }}</h3>
         <h2>Body Weight</h2>
       </div>
-      <div class="icon">
-        <i class=""><img src="#"></i>
-      </div>
-      <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->
-  <div class="col-lg-3 col-xs-6">
+  <div class="col-lg-3 cold-md-6 col-xs-6">
     <!-- small box -->
-    <div class="small-box bg-green">
+    <div class="small-box bg-green" style="border: 1px solid black">
       <div class="inner">
-        <h3>53<sup style="font-size: 20px">%</sup></h3>
-
+        <h3>{{ user.trainee.body_fat }}<sup style="font-size: 20px">%</sup></h3>
         <h2>Body Fat</h2>
       </div>
-      <div class="icon">
-        <i class="icon-bodyweight"><img src="#"></i>
-      </div>
-      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->
-  <div class="col-lg-3 col-xs-6">
+  <div class="col-lg-3 col-md-6 col-xs-6">
     <!-- small box -->
-    <div class="small-box bg-yellow">
+    <div class="small-box bg-yellow" style="border: 1px solid black">
       <div class="inner">
-        <h3>44</h3>
-
+        <h3 id="user_bmi">N/A</h3>
         <h2>BMI</h2>
       </div>
-      <div class="icon">
-        <i class="bmi"><img src="#"></i>
-      </div>
-      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->
+  {% endif %}
 
-</div> {% endcomment %}
+</div>
+<br />
+<br />
+<br />
+<br />
 <!-- /.row -->
 
 <div class="l-content--inner">
@@ -96,6 +87,26 @@
     }
   </script>
   <script>
+    window.onload = function() {
+      var weight = {
+        {
+          user.trainee.current_weight
+        }
+      };
+      var height = {
+        {
+          user.trainee.height
+        }
+      };
+
+      var h1 = height * 12;
+      var w2 = weight * 2.205;
+      var result = (w2 * 705) / h1;
+      document.getElementById("user_bmi").innerHTML = result.toPrecision(4);
+    }
+
+
+
     (function(a, b, c, d) {
       a = Drupal.settings.tealium.tealium_script;
       b = document;
@@ -3058,9 +3069,9 @@
       </div>
     </div>
   </div>
-  <hr/>
-  <br/><br/>
+  <hr />
+  <br /><br />
   <a href="{% url "seetask" %}" class="btn btn-primary" style="width:100%">See all Task</a>
 </div>
 
-  {% endblock %}
+{% endblock %}

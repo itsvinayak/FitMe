@@ -8,18 +8,49 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        ('user', '0001_initial'),
-    ]
+    dependencies = [("user", "0001_initial")]
 
     operations = [
         migrations.CreateModel(
-            name='Task',
+            name="Task",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('note', models.TextField()),
-                ('task_to_give', models.CharField(choices=[('beginner day 1', 'beginner day 1'), ('beginner day 2', 'beginner day 2'), ('beginner day 3', 'beginner day 3'), ('beginner day 4', 'beginner day 4'), ('beginner day 5', 'beginner day 5'), ('beginner day 6', 'beginner day 6'), ('beginner day 7', 'beginner day 7'), ('beginner day 8', 'beginner day 8'), ('beginner day 9', 'beginner day 9'), ('beginner day 10', 'beginner day 10')], max_length=50)),
-                ('person', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='user.Trainee')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("note", models.TextField()),
+                (
+                    "task_to_give",
+                    models.CharField(
+                        choices=[
+                            ("beginner day 1", "beginner day 1"),
+                            ("beginner day 2", "beginner day 2"),
+                            ("beginner day 3", "beginner day 3"),
+                            ("beginner day 4", "beginner day 4"),
+                            ("beginner day 5", "beginner day 5"),
+                            ("beginner day 6", "beginner day 6"),
+                            ("beginner day 7", "beginner day 7"),
+                            ("beginner day 8", "beginner day 8"),
+                            ("beginner day 9", "beginner day 9"),
+                            ("beginner day 10", "beginner day 10"),
+                        ],
+                        max_length=50,
+                    ),
+                ),
+                (
+                    "person",
+                    models.OneToOneField(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="user.Trainee",
+                    ),
+                ),
             ],
-        ),
+        )
     ]

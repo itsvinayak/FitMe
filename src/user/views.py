@@ -32,7 +32,11 @@ def TraineeRegister(request):
             ######################### mail system ####################################
             htmly = get_template("user/Email.html")
             d = {"username": username}
-            subject, from_email, to = "welcome to FitMe", "settings.EMAIL_HOST_USER", email
+            subject, from_email, to = (
+                "welcome to FitMe",
+                "settings.EMAIL_HOST_USER",
+                email,
+            )
             html_content = htmly.render(d)
             msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
@@ -50,13 +54,14 @@ def TraineeRegister(request):
         form = UserRegisterForm()
         Tform = TraineeRegisterForm()
 
-    return render(request, "user/register.html", {"form": form,'tform':Tform})
+    return render(request, "user/register.html", {"form": form, "tform": Tform})
 
 
 ############################## TrainerRegister ###############################################
 
+
 def TrainerRegister(request):
-    #TrainerRegisterForm
+    # TrainerRegisterForm
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         Tform = TrainerRegisterForm(request.POST)
@@ -71,7 +76,11 @@ def TrainerRegister(request):
             ######################### mail system ####################################
             htmly = get_template("user/Email.html")
             d = {"username": username}
-            subject, from_email, to = "welcome to FitMe", "settings.EMAIL_HOST_USER", email
+            subject, from_email, to = (
+                "welcome to FitMe",
+                "settings.EMAIL_HOST_USER",
+                email,
+            )
             html_content = htmly.render(d)
             msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
@@ -89,14 +98,16 @@ def TrainerRegister(request):
         form = UserRegisterForm()
         Tform = TrainerRegisterForm()
 
-    return render(request, "user/register.html", {"form": form,'tform':Tform})
+    return render(request, "user/register.html", {"form": form, "tform": Tform})
+
 
 ################################## update ####################################
+
 
 @login_required
 def TraineeProfileUpdate(request):
     if request.method == "POST":
-        form = TraineeUpdateForm(request.POST,instance=request.user.trainee)
+        form = TraineeUpdateForm(request.POST, instance=request.user.trainee)
         print(form.errors)
         if form.is_valid():
             form.save()
@@ -107,16 +118,16 @@ def TraineeProfileUpdate(request):
 
     data = {
         "form": form,
-        "profile_pic":request.user.trainee.image.url,
+        "profile_pic": request.user.trainee.image.url,
         "title": "profile update for {}".format(request.user),
     }
     return render(request, "user/TraineeProfileUpdate.html", data)
 
+
 ############################## Trainee Profile #####################################
+
 
 @login_required
 def TraineeProfile(request):
-    data={
-        "profile_pic":request.user.trainee.image.url,
-    }
-    return render(request,"user/profile.html",data)
+    data = {"profile_pic": request.user.trainee.image.url}
+    return render(request, "user/profile.html", data)

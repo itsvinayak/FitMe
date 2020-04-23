@@ -10,38 +10,77 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-    ]
+    dependencies = [migrations.swappable_dependency(settings.AUTH_USER_MODEL)]
 
     operations = [
         migrations.CreateModel(
-            name='Trainer',
+            name="Trainer",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('trainer', models.BooleanField(default=True, verbose_name='trainer')),
-                ('approve', models.BooleanField(default=False)),
-                ('image', models.ImageField(default='profile_pics/default.jpg', upload_to='profile_pics')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("trainer", models.BooleanField(default=True, verbose_name="trainer")),
+                ("approve", models.BooleanField(default=False)),
+                (
+                    "image",
+                    models.ImageField(
+                        default="profile_pics/default.jpg", upload_to="profile_pics"
+                    ),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
-            options={
-                'db_table': 'trainer',
-            },
+            options={"db_table": "trainer"},
         ),
         migrations.CreateModel(
-            name='Trainee',
+            name="Trainee",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('trainee', models.BooleanField(default=True, verbose_name='trainee')),
-                ('phone', models.CharField(max_length=11, unique=True)),
-                ('dob', models.DateField(default=datetime.datetime.now)),
-                ('gender', models.CharField(default='Male', max_length=6)),
-                ('image', models.ImageField(default='profile_pics/default.jpg', upload_to='profile_pics')),
-                ('trainer_ass', models.OneToOneField(null=True, on_delete=django.db.models.deletion.SET_NULL, to='user.Trainer')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("trainee", models.BooleanField(default=True, verbose_name="trainee")),
+                ("phone", models.CharField(max_length=11, unique=True)),
+                ("dob", models.DateField(default=datetime.datetime.now)),
+                ("gender", models.CharField(default="Male", max_length=6)),
+                (
+                    "image",
+                    models.ImageField(
+                        default="profile_pics/default.jpg", upload_to="profile_pics"
+                    ),
+                ),
+                (
+                    "trainer_ass",
+                    models.OneToOneField(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="user.Trainer",
+                    ),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
-            options={
-                'db_table': 'trainee',
-            },
+            options={"db_table": "trainee"},
         ),
     ]

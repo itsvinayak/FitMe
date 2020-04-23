@@ -19,16 +19,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth
 
-admin.site.site_header = 'FitMe Administration'
-admin.site.index_title = 'FitMe'
-admin.site.site_title = 'ADMIN PANEL'
+admin.site.site_header = "FitMe Administration"
+admin.site.index_title = "FitMe"
+admin.site.site_title = "ADMIN PANEL"
 
 
 urlpatterns = [
-    path('admin/',admin.site.urls),
-    path('', include('FitMeApp.urls')),
-    path('user/', include('user.urls')),
-    path('oauth', include('social_django.urls', namespace='social')),
+    path("admin/", admin.site.urls),
+    path("", include("FitMeApp.urls")),
+    path("user/", include("user.urls")),
+    path("oauth", include("social_django.urls", namespace="social")),
 ]
 
 if settings.DEBUG:

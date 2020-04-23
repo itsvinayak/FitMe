@@ -8,25 +8,37 @@ from django import forms
 class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username','email', 'first_name', 'last_name','password1', 'password2']
+        fields = [
+            "username",
+            "email",
+            "first_name",
+            "last_name",
+            "password1",
+            "password2",
+        ]
+
 
 class TraineeRegisterForm(ModelForm):
     image = forms.ImageField(required=False)
+
     class Meta:
         model = Trainee
-        exclude = ('trainee','user')
+        exclude = ("trainee", "user")
+
 
 class TrainerRegisterForm(ModelForm):
     class Meta:
         model = Trainer
         fields = []
 
+
 class TraineeUpdateForm(ModelForm):
     class Meta:
         model = Trainee
-        exclude = ('trainee','user')
+        exclude = ("trainee", "user")
+
 
 class TrainerUpdateForm(ModelForm):
     class Meta:
         model = Trainer
-        fields = '__all__'
+        fields = "__all__"

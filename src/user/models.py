@@ -4,10 +4,9 @@ from datetime import datetime
 from PIL import Image
 
 
-
 class Trainer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    trainer = models.BooleanField('trainer', default=True)
+    trainer = models.BooleanField("trainer", default=True)
     approve = models.BooleanField(default=False)
     image = models.ImageField(
         default="profile_pics/default.jpg", upload_to="profile_pics"
@@ -29,14 +28,21 @@ class Trainer(models.Model):
         db_table = "trainer"
 
 
-
 class Trainee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    trainee = models.BooleanField('trainee', default=True)
-    trainer_ass = models.ForeignKey(Trainer,null=True,on_delete=models.SET_NULL)
-    phone = models.CharField(max_length=11,unique=True)
+    trainee = models.BooleanField("trainee", default=True)
+    trainer_ass = models.ForeignKey(
+        Trainer, blank=True, null=True, on_delete=models.SET_NULL
+    )
+    phone = models.CharField(max_length=11, unique=True, null=True, blank=True)
+    height = models.DecimalField(max_digits=3, decimal_places=2)
+    age = models.IntegerField()
+    current_weight = models.DecimalField(max_digits=3, decimal_places=2)
+    body_fat = models.IntegerField()
+    goal_weight = models.DecimalField(max_digits=3, decimal_places=2)
+    health_condition = models.CharField(max_length=50)
     dob = models.DateField(default=datetime.now)
-    gender = models.CharField(max_length=6,default='Male')
+    gender = models.CharField(max_length=6, default="Male", null=True, blank=True)
     image = models.ImageField(
         default="profile_pics/default.jpg", upload_to="profile_pics"
     )
@@ -55,7 +61,6 @@ class Trainee(models.Model):
 
     class Meta:
         db_table = "trainee"
-
 
 
 #

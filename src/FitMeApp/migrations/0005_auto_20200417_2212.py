@@ -5,14 +5,44 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('FitMeApp', '0004_auto_20200406_0632'),
-    ]
+    dependencies = [("FitMeApp", "0004_auto_20200406_0632")]
 
     operations = [
         migrations.AlterField(
-            model_name='task',
-            name='task_to_give',
-            field=models.CharField(choices=[('beginner_day_1', 'beginner_day_1'), ('beginner_day_2', 'beginner_day_2'), ('beginner_day_3', 'beginner_day_3'), ('beginner_day_4', 'beginner_day_4'), ('beginner_day_5', 'beginner_day_5'), ('beginner_day_6', 'beginner_day_6'), ('beginner_day_7', 'beginner_day_7'), ('beginner_day_8', 'beginner_day_8'), ('beginner_day_9', 'beginner_day_9'), ('beginner_day_10', 'beginner_day_10'), ('beginner_day_10', 'beginner_day_11'), ('beginner_day_10', 'beginner_day_12'), ('beginner_day_10', 'beginner_day_13'), ('beginner_day_10', 'beginner_day_14'), ('beginner_day_10', 'beginner_day_15'), ('beginner_day_10', 'beginner_day_16'), ('beginner_day_10', 'beginner_day_17'), ('beginner_day_10', 'beginner_day_18'), ('beginner_day_10', 'beginner_day_19'), ('beginner_day_10', 'beginner_day_20'), ('beginner_day_10', 'beginner_day_21'), ('beginner_day_10', 'beginner_day_22'), ('beginner_day_10', 'beginner_day_23'), ('beginner_day_10', 'beginner_day_24'), ('beginner_day_10', 'beginner_day_25'), ('beginner_day_10', 'beginner_day_26'), ('beginner_day_10', 'beginner_day_27'), ('beginner_day_10', 'beginner_day_28')], max_length=50),
-        ),
+            model_name="task",
+            name="task_to_give",
+            field=models.CharField(
+                choices=[
+                    ("beginner_day_1", "beginner_day_1"),
+                    ("beginner_day_2", "beginner_day_2"),
+                    ("beginner_day_3", "beginner_day_3"),
+                    ("beginner_day_4", "beginner_day_4"),
+                    ("beginner_day_5", "beginner_day_5"),
+                    ("beginner_day_6", "beginner_day_6"),
+                    ("beginner_day_7", "beginner_day_7"),
+                    ("beginner_day_8", "beginner_day_8"),
+                    ("beginner_day_9", "beginner_day_9"),
+                    ("beginner_day_10", "beginner_day_10"),
+                    ("beginner_day_10", "beginner_day_11"),
+                    ("beginner_day_10", "beginner_day_12"),
+                    ("beginner_day_10", "beginner_day_13"),
+                    ("beginner_day_10", "beginner_day_14"),
+                    ("beginner_day_10", "beginner_day_15"),
+                    ("beginner_day_10", "beginner_day_16"),
+                    ("beginner_day_10", "beginner_day_17"),
+                    ("beginner_day_10", "beginner_day_18"),
+                    ("beginner_day_10", "beginner_day_19"),
+                    ("beginner_day_10", "beginner_day_20"),
+                    ("beginner_day_10", "beginner_day_21"),
+                    ("beginner_day_10", "beginner_day_22"),
+                    ("beginner_day_10", "beginner_day_23"),
+                    ("beginner_day_10", "beginner_day_24"),
+                    ("beginner_day_10", "beginner_day_25"),
+                    ("beginner_day_10", "beginner_day_26"),
+                    ("beginner_day_10", "beginner_day_27"),
+                    ("beginner_day_10", "beginner_day_28"),
+                ],
+                max_length=50,
+            ),
+        )
     ]
