@@ -87,15 +87,25 @@ WSGI_APPLICATION = "FitMe.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
+#     if you want mysql database use this else no need to change 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "fitme",
+#         "USER": "root",
+#         "HOST": "localhost",
+#         "PASSWORD": "vinayak",
+#         "PORT": "3306",
+#         "OPTIONS": {"sql_mode": "traditional"},
+#     }
+# }
+
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "fitme",
-        "USER": "root",
-        "HOST": "localhost",
-        "PASSWORD": "vinayak",
-        "PORT": "3306",
-        "OPTIONS": {"sql_mode": "traditional"},
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
