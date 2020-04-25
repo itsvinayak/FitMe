@@ -19,8 +19,6 @@ class UserRegisterForm(UserCreationForm):
 
 
 class TraineeRegisterForm(ModelForm):
-    image = forms.ImageField(required=False)
-
     class Meta:
         model = Trainee
         exclude = ("trainee", "user")

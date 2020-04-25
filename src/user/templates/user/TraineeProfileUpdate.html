@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block  body %}
 
-<form action="{% url 'TraineeProfileUpdate' %}" method="post">
+<form action="{% url 'TraineeProfileUpdate' %}" enctype="multipart/form-data"  method="post">
   {% csrf_token %}
   {{form|crispy}}
 

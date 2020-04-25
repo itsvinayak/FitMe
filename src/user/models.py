@@ -18,6 +18,7 @@ class Trainer(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         img = Image.open(self.image.path)
+        print('\n\n\n  -->  try saving image')
         width, height = img.size
         if height >= 300 or width >= 300:
             output_size = (300, 300)
@@ -53,10 +54,15 @@ class Trainee(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         img = Image.open(self.image.path)
+        print('\n\n\n  -->  try saving image')
         width, height = img.size
         if height >= 300 or width >= 300:
             output_size = (300, 300)
             img.thumbnail(output_size)
+            print("no error")
+            img.save(self.image.path)
+        else:
+            print("no error saving")
             img.save(self.image.path)
 
     class Meta:

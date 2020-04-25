@@ -20,7 +20,7 @@ from django.conf import settings
 def TraineeRegister(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
-        Tform = TraineeRegisterForm(request.POST)
+        Tform = TraineeRegisterForm(request.POST, request.FILES)
         if form.is_valid() and Tform.is_valid():
             user = form.save()
             profile = Tform.save(commit=False)
@@ -107,8 +107,8 @@ def TrainerRegister(request):
 @login_required
 def TraineeProfileUpdate(request):
     if request.method == "POST":
-        form = TraineeUpdateForm(request.POST, instance=request.user.trainee)
-        print(form.errors)
+        form = TraineeUpdateForm(request.POST,request.FILES,instance=request.user.trainee)
+        print('\n\n\n\n\n-->',form.errors)
         if form.is_valid():
             form.save()
             messages.success(request, f"profile is updated")

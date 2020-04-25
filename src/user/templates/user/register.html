@@ -67,7 +67,7 @@
       </div>
       <div class="col-md-9 register-right">
         <div class="row register-form">
-          <form method="POST" style="border: 1px solid black; padding:10%; width:100%; border-radius:1%;">
+          <form method="POST" enctype="multipart/form-data"  style="border: 1px solid black; padding:10%; width:100%; border-radius:1%;">
             {% csrf_token %}
             <fieldset class="form-group">
               {{ form |crispy }}
