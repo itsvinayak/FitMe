@@ -31,6 +31,59 @@ to run requirements.txt
 here <b>env/</b> folder contains all dependencies
 
 
+## Running locally
+
+<ol>
+  <li>
+      clone repository 
+      <pre>$ git clone https://github.com/itsvinayak/fitme.git</pre>
+  </li>
+  <li> 
+     install virtual environment
+     <pre>pip install virtualenv</pre>
+ </li>
+  <li>
+    make and activate virtual env
+   <pre>virtualenv env1</pre>
+   <pre>env1\Scripts\activate</pre>
+   <pre>pip install -r requirements.txt</pre>
+  <li>
+     make database settings and connect it to your local database(if you want to use mysql else skip this step) 
+    <pre>$ cd ./src/FitMe </pre>
+    open <b>settings.py</b> file
+    <pre>
+                DATABASES = {
+            "default": {
+                "ENGINE": "django.db.backends.mysql",
+                "NAME": "iert",
+                "USER": "root",
+                "HOST": "localhost",
+                "PASSWORD": "vinayak",
+                "PORT": "3306",
+                "OPTIONS": {"sql_mode": "traditional"},
+            }
+        }
+   </pre>
+   set this part according to needs.
+  </li>
+ <li> in src dir </li>
+  <li>
+    run migrations 
+    <pre>$ python manage.py migrate</pre>
+  </li>
+  <li>
+    to create admin 
+   <pre>$ python3 manage.py createsuperuser</pre>
+  <li>
+    now, runserver 
+    <pre>$ python manage.py runserver</pre>
+  </li>
+ 
+ </ol>
+
+
+
+
 ## Features
 
 <ul>
