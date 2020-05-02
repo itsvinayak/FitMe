@@ -13,7 +13,7 @@ from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
-from django.conf import settings
+from FitMe import settings
 
 
 ########### register here #####################################
@@ -34,7 +34,7 @@ def TraineeRegister(request):
             d = {"username": username}
             subject, from_email, to = (
                 "welcome to FitMe",
-                "settings.EMAIL_HOST_USER",
+                settings.EMAIL_HOST_USER,
                 email,
             )
             html_content = htmly.render(d)

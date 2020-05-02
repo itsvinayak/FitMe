@@ -1,7 +1,12 @@
+from typing import Any, Union
+
+from FitMe import settings
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
 from PIL import Image
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
 
 
 class Trainer(models.Model):
@@ -17,6 +22,23 @@ class Trainer(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+        if self.approve:
+            ######################### mail system ####################################
+            try:
+                email = self.user.email
+                print('\n\n\n',email,settings.EMAIL_HOST_USER)
+                htmly = get_template("user/Email.html")
+                d = {"username": self.user.username}
+                subject = "welcome to FitMe you are approved by admin"
+                from_email = settings.EMAIL_HOST_USER
+                to = email
+                html_content = htmly.render(d)
+                msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
+                msg.attach_alternative(html_content, "text/html")
+                msg.send()
+            except:
+                print("email not working")
+
         img = Image.open(self.image.path)
         print('\n\n\n  -->  try saving image')
         width, height = img.size
