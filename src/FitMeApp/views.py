@@ -1,9 +1,6 @@
-from django.core.exceptions import *
-from django.http import HttpResponse
-from datetime import datetime
 from django.conf import settings
 from django.core.mail import send_mail
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -41,6 +38,7 @@ def home(request):
             else:
                 login(request, user)
                 try:
+                    from src.user.models import Trainee
                     task = Task.objects.filter(
                         person=Trainee.objects.get(user=request.user)
                     )
@@ -108,8 +106,9 @@ def seetask(request):
     data = {"task": Task.objects.filter(person=Trainee.objects.get(user=request.user))}
     return render(request, "seetask.html", data)
 
+
 @login_required
-def doneTask(request,id):
+def doneTask(request, id):
     Task.objects.get(id=id).task_complete = True
     data = {"task": Task.objects.filter(person=Trainee.objects.get(user=request.user))}
     return render(request, "seetask.html", data)
@@ -253,15 +252,6 @@ def diet_hardcore(request):
 
 def services(request):
     return render(request, "services.html")
-
-
-def mail(request):
-    subject = "Greetings"
-    msg = "Congratulations for your success"
-    to = ["dharmsinghjmc@gmail.com", "kaustubh2911@gmail.com"]
-    res = send_mail(
-        subject, msg, settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD, to
-    )
 
 
 def gallery(request):
