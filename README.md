@@ -97,4 +97,4 @@ here <b>env/</b> folder contains all dependencies
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/itsvinayak/fitme 
+Bug reports and pull requests are welcome on GitHub at https://github.com/itsvinayak/FitMe 
