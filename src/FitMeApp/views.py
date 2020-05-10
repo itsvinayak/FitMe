@@ -28,7 +28,10 @@ def home(request):
                 if trainer.approve:
                     login(request, user)
                     messages.success(request, f" wecome {username} !!")
-                    trainee = Trainee.objects.filter(trainer_ass=trainer)
+                    try:
+                        trainee = Trainee.objects.filter(trainer_ass=trainer)
+                    except:
+                        trainee = None
                     data = {"trainee": trainee}
                     return render(request, "TrainerDashBoard.html", data)
                 else:
@@ -39,6 +42,7 @@ def home(request):
                 login(request, user)
                 try:
                     from src.user.models import Trainee
+
                     task = Task.objects.filter(
                         person=Trainee.objects.get(user=request.user)
                     )
@@ -61,7 +65,11 @@ def home(request):
             trainer = False
         if trainer:
             if trainer.approve:
-                trainee = Trainee.objects.filter(trainer_ass=trainer)
+                try:
+                    trainee = Trainee.objects.filter(trainer_ass=trainer)
+                except:
+                    trainee = None
+
                 data = {"trainee": trainee}
                 return render(request, "TrainerDashBoard.html", data)
             else:
