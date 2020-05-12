@@ -1446,7 +1446,7 @@
           <div class="hme-work-section--slide-content">
             <div class="hme-work-section--slide-text-content">
               <h2 class="hme-work-section--slide-text-content--title">Step 1 -Start Your journey</h2>
-              <img class="hme-work-section--slide-text-content--image cursor-pointer" alt="fitness goal" title="Set Your Fitness Goal" src="{% static '/img/diet.jpg' %}" id="fitnessLink" data-toggle="modal" data-target="#fitnessModal">
+              <img class="hme-work-section--slide-text-content--image cursor-pointer" alt="fitness goal" title="Set Your Fitness Goal"  src="{% static '/img/diet.jpeg' %}" id="fitnessLink" data-toggle="modal" data-target="#fitnessModal">
               <h4 class="hme-work-section--slide-text-content--description"> Silently working hard towards their goal can cut them off from the world and they might be working hard but you never know if their hard work was placed in the right
                 direction and they might realize it too late. </h4>
             </div>
@@ -1456,7 +1456,7 @@
           <div class="hme-work-section--slide-content">
             <div class="hme-work-section--slide-text-content">
               <h2 class="hme-work-section--slide-text-content--title">Step 2 - Trainers</h2>
-              <img class="hme-work-section--slide-text-content--image" alt="FitMe coaches" title="Coaches guide you" src="static/img/home/Step2.98fd59777e57.png">
+              <img class="hme-work-section--slide-text-content--image" alt="FitMe coaches" title="Coaches guide you" src="{% static '/img/works/1.jpg' %}">
               <h4 class="hme-work-section--slide-text-content--description">If you are looking to simply get healthier, we will match you with a one-on-one trainer who can customize each session to meet your fitness goals</h4>
             </div>
           </div>
@@ -1465,7 +1465,7 @@
           <div class="hme-work-section--slide-content">
             <div class="hme-work-section--slide-text-content">
               <h2 class="hme-work-section--slide-text-content--title">Step 3 - Track your self</h2>
-              <img class="hme-work-section--slide-text-content--image" alt="tracking" title="Track and Measure your Progress" src="/static/img/home/Step3.e6c0bc20fc8d.png">
+              <img class="hme-work-section--slide-text-content--image" alt="tracking" title="Track and Measure your Progress" src="{% static '/img/works/2.jpg' %}">
               <h4 class="hme-work-section--slide-text-content--description">Best Smart Watch and Shoes for Tracking</h4>
             </div>
           </div>
@@ -1474,7 +1474,7 @@
           <div class="hme-work-section--slide-content">
             <div class="hme-work-section--slide-text-content">
               <h2 class="hme-work-section--slide-text-content--title">Step 4 - Feel the new you</h2>
-              <img class="hme-work-section--slide-text-content--image" alt="results" title="Discover the new you" src="/static/img/home/Step4.e5e7a1dbf70b.png">
+              <img class="hme-work-section--slide-text-content--image" alt="results" title="Discover the new you" src="{% static '/img/works/3.jpg' %}">
               <h4 class="hme-work-section--slide-text-content--description">As a part of the movement, individuals and organisations can undertake various efforts for their own health and well being as well as for the health and well being of fellow
                 Indians. Fitness does not mean only physical fitness, but also means mental strength and emotional equanimity.</h4>
             </div>
@@ -1546,10 +1546,10 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-5 col-md-offset-1">
-          <img src="{% static '/img/FitMe image.jpg' %}" alt="FitMe app" title="FitMe dashboard" class="hme-app-section--app-image" />
+          <img src="{% static '/img/img1.png' %}" alt="FitMe app" title="FitMe dashboard" class="hme-app-section--app-image" />
         </div>
         <div class="col-sm-5">
-          <img src="{% static '/media/phone.jpg' %}" alt="FitMe awards" title="FitMe awards and recognitions" class="hme-app-section--achievements-image" />
+          <img src="{% static '/img/fitme.jpg' %}" alt="FitMe awards" title="FitMe awards and recognitions" class="hme-app-section--achievements-image" />
           <br>
           <a href="/app/" onclick="ga('send', 'event', 'HomePage', 'CTA Click', 'Awards Section 4 Homepage')"><button class="hme-button">KNOW MORE</button></a>
         </div>
@@ -1618,7 +1618,7 @@
       <a href="/corporate/" onclick = "ga('send', 'event', 'HomePage', 'CTA Click', 'Corporate Section 8 Homepage')"><button class="hme-button">KNOW MORE</button></a>
     </div>-->
     <div class="col-sm-4">
-      <img src="/static/img/FitMe_care.jpg" alt="FitMe care" title="medical" id="healthcareLink" class="hme-partner-section--image cursor-pointer" data-toggle="modal" data-target="#healthcareModal" />
+      <img src="{% static '/img/fitme_care.jpg' %}" alt="FitMe care" title="medical" id="healthcareLink" class="hme-partner-section--image cursor-pointer" data-toggle="modal" data-target="#healthcareModal" />
       <h4 class="hme-partner-section--content-title">FitMe Care</h4>
       <p class="hme-partner-section--content-subtitle">Looking for a digital wellness partner? Integrate with our lifestyle management solutions to extend care beyond your
         clinic or hospital</p>
@@ -1814,28 +1814,19 @@
           <li class="hme-footer-section-li--title">FOLLOW US</li>
           <li class="hme-footer-section-li--link">
             <a href="https://www.facebook.com/FitMe/" target="_blank" onclick="_ga('HomePage', 'Social', 'FB Footer Homepage')">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/FitMe-prod/home_website/img/Icon-facebook_2.png" alt="facebook" title="FitMe facebook" class="footer-small-social-icon social-facebook">
+             Facebook
             </a>
             <a href="https://twitter.com/FitMe" target="_blank" onclick="_ga('HomePage', 'Social', 'Twitter Footer Homepage')">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/FitMe-prod/home_website/img/Icon-twitter_1.png" alt="twitter" title="FitMe twitter" class="footer-small-social-icon social-twitter">
+             Twitter
             </a>
             <a href="https://www.youtube.com/channel/UCVpKsV04t5WzWJcxqRax7rA" target="_blank" onclick="_ga('HomePage', 'Social', 'Youtube Footer Homepage')">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/FitMe-prod/home_website/img/youtube-icon.png" alt="youtube" title="FitMe youtube" class="footer-small-social-icon social-youtube">
+              Youtube
             </a>
             <a href="https://www.instagram.com/explore/tags/FitMe/" target="_blank" onclick="_ga('HomePage', 'Social', 'Instagram Footer Homepage')">
-              <img src="https://s3-ap-southeast-1.amazonaws.com/FitMe-prod/home_website/img/instagram (1).png" alt="instagram" title="FitMe instagram" class="footer-small-social-icon social-instagram">
+              Instagram
             </a>
           </li>
-          <li class="hme-footer-section-li--link">
-            <a href="https://play.google.com/store/apps/details?id=com.FitMe.basic&hl=en" target="_blank" onclick="_ga('HomePage', 'App Download', 'Android Footer Homepage')">
-              <img src="/static/img/home/googleplay_white.12ace1702614.png" class="get-app-now--footer-image" alt="FitMe android app" title="FitMe dashboard" />
-            </a>
-          </li>
-          <li class="hme-footer-section-li--link">
-            <a href="https://itunes.apple.com/in/app/FitMe-weight-loss-coach/id943712366?mt=8" target="_blank" onclick="_ga('HomePage', 'App Download', 'iOS Footer Homepage')">
-              <img src="/static/img/home/appstore_white.be07fee1a703.png" class="get-app-now--footer-image" alt="FitMe ios app" title="FitMe dashboard" />
-            </a>
-          </li>
+
         </ul>
       </div>
     </div>
