@@ -3,14 +3,11 @@
 
 /* Gallery Item
  * -------------------------- */
- 
+
 #isotope-gallery-container .col-md-3 {
     margin-right: -1px;
 }
 
-.gallery-item-wrapper {
-    padding-bottom: 25px;
-}
 .gallery-item {
     overflow: hidden;
     -webkit-transition: all 0.2s ease;
@@ -110,7 +107,7 @@
     text-align: center;
     padding-top: 20px;
     background-color: #f1f1f1;
-    bor der: 2px solid #ecf0f1;
+    border: 2px solid #ecf0f1;
     border-top: 0;
     overflow: hidden;
 }
@@ -211,22 +208,22 @@
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-	
-		
-	
+
+
+
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-	
 
-	
+
+
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-	
-	
-	
+
+
+
 }
 

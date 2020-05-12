@@ -4,55 +4,56 @@
 {% block body %}
 
 {% if task %}
-<h2> task for the day </h2>
+<h2> Task for the day </h2>
+
 {% for i in task %}
-{% if task.task_complete %}
-<div style=" border: 1px solid black; margin: 20px; padding: 30px; background-color: white;" class="row">
 
-  <div class="col-md-4" style="overflow:auto;">
-    {{i.note|safe}}
-  </div>
+    {% if not i.task_complete %}
 
-  <div class="col-md-4">
-    <a href="{{i.task_to_give}}" class="btn btn-default">{{i.task_to_give}}</i>
-  </div>
+          <div style=" border: 1px solid black; margin: 20px; padding: 30px; background-color: white;" class="row">
 
-  <div class="col-md-4">
-    <a href='{% url "doneTask" i.id %}' class="btn btn-danger btn-inline" style="width:100%">done</a>
-  </div>
+            <div class="col-md-4" style="overflow:auto;">
+              {{i.note|safe}}
+            </div>
 
-</div>
-{% else %}
-<h3> no task for today, take some rest </h3>
+            <div class="col-md-4">
+              <a href="{{i.task_to_give}}" class="btn btn-default">{{i.task_to_give}}</i>
+            </div>
 
-{% endif %}
+            <div class="col-md-4">
+              <a href='{% url "doneTask" i.id %}' class="btn btn-danger btn-inline" style="width:100%">done</a>
+            </div>
+          </div>
+
+    {% endif %}
+
 {% endfor %}
 
 <hr>
-<br/>
+
 
 <h2> Task Complete</h2>
 {% for i in task %}
-{% if not task.task_complete %}
-<div style=" border: 1px solid black; margin: 20px; padding: 30px; background-color: white;" class="row">
 
-  <div class="col-md-4" style="overflow:auto;">
-    {{i.note|safe}}
-  </div>
+    {% if i.task_complete %}
+      <div style=" border: 1px solid black; margin: 20px; padding: 30px; background-color: white;" class="row">
 
-  <div class="col-md-4">
-    <a href="{{i.task_to_give}}" class="btn btn-default">{{i.task_to_give}}</i>
-  </div>
+        <div class="col-md-4" style="overflow:auto;">
+          {{i.note|safe}}
+        </div>
 
-  <div class="col-md-4">
-    <a class="btn btn-default btn-inline" style="width:100%">Completed</a>
-  </div>
+        <div class="col-md-4">
+          <a href="{{i.task_to_give}}" class="btn btn-default">{{i.task_to_give}}</i>
+        </div>
 
-</div>
-{% else %}
-<h3> no task here 😀</h3>
+        <div class="col-md-4">
+          <a class="btn btn-default btn-inline" style="width:100%">Completed</a>
+        </div>
 
-{% endif %}
+      </div>
+
+
+    {% endif %}
 
 
 {% endfor %}

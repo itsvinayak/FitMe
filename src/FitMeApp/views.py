@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.core.mail import send_mail
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -117,9 +117,11 @@ def seetask(request):
 
 @login_required
 def doneTask(request, id):
-    Task.objects.get(id=id).task_complete = True
-    data = {"task": Task.objects.filter(person=Trainee.objects.get(user=request.user))}
-    return render(request, "seetask.html", data)
+    task = Task.objects.get(id=id)
+    task.task_complete = True
+    task.save()
+    print(Task.objects.get(id=id).task_complete)
+    return redirect("seetask")
 
 
 def about(request):

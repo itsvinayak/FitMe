@@ -26,7 +26,7 @@ class Trainer(models.Model):
             ######################### mail system ####################################
             try:
                 email = self.user.email
-                print('\n\n\n',email,settings.EMAIL_HOST_USER)
+                print("\n\n\n", email, settings.EMAIL_HOST_USER)
                 htmly = get_template("user/Email.html")
                 d = {"username": self.user.username}
                 subject = "welcome to FitMe you are approved by admin"
@@ -40,7 +40,7 @@ class Trainer(models.Model):
                 print("email not working")
 
         img = Image.open(self.image.path)
-        print('\n\n\n  -->  try saving image')
+        print("\n\n\n  -->  try saving image")
         width, height = img.size
         if height >= 300 or width >= 300:
             output_size = (300, 300)
@@ -58,11 +58,11 @@ class Trainee(models.Model):
         Trainer, blank=True, null=True, on_delete=models.SET_NULL
     )
     phone = models.CharField(max_length=11, unique=True, null=True, blank=True)
-    height = models.DecimalField(max_digits=3, decimal_places=2)
+    height = models.DecimalField(max_digits=100, decimal_places=1)
     age = models.IntegerField()
-    current_weight = models.DecimalField(max_digits=3, decimal_places=2)
+    current_weight = models.DecimalField(max_digits=100, decimal_places=1)
     body_fat = models.IntegerField()
-    goal_weight = models.DecimalField(max_digits=3, decimal_places=2)
+    goal_weight = models.DecimalField(max_digits=100, decimal_places=1)
     health_condition = models.CharField(max_length=50)
     dob = models.DateField(default=datetime.now)
     gender = models.CharField(max_length=6, default="Male", null=True, blank=True)
@@ -76,7 +76,7 @@ class Trainee(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         img = Image.open(self.image.path)
-        print('\n\n\n  -->  try saving image')
+        print("\n\n\n  -->  try saving image")
         width, height = img.size
         if height >= 300 or width >= 300:
             output_size = (300, 300)

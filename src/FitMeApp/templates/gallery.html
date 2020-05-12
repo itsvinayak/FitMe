@@ -8,117 +8,70 @@
 {% endblock %}
 
 {% block body %}
+<style>
+    section .gallery-1{
+        position: absolute;
+        left:0;
+        margin: 0;
+        padding: 0;
 
-	<section id="inner-headline">
-	<div class="container">
-	</div>
-	</section>
-	<section id="content">
-	<div class="container">
-	
-						<div class="row"> 
-							<div class="col-md-12">
-								<div class="about-logo">
-									<h3>Our <span class="color">Gallery</span></h3>
-							
-								</div>  
-							</div>
-						</div> 
-						
-	</div>
-	</section>	
-			  <!-- Start Gallery 1-2 -->
-    <section id="gallery-1" class="content-block section-wrapper gallery-1">
-    	 	<div class="container">
-            <!-- /.gallery-filter -->
-            
-            <div class="row">
-                <div id="isotope-gallery-container">
-                    <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper artwork creative">
-                        <div class="gallery-item">
-                            <div class="gallery-thumb">
-                                <img src="{% static 'img/works/1.jpg' %}" class="img-responsive" alt="1st gallery Thumb">
-                                <div class="image-overlay"></div>
-                                <a href="{% static 'img/works/1.jpg' %}"class="gallery-zoom"><i class="fa fa-eye"></i></a>
-                                
-                            </div>
-                    </div>
-                    <!-- /.gallery-item-wrapper -->
-                    <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper nature outside">
-                        <div class="gallery-item">
-                            <div class="gallery-thumb">
-                                <img src="{% static 'img/works/2.jpg' %}"class="img-responsive" alt="2nd gallery Thumb">
-                                <div class="image-overlay"></div>
-                                <a href="{% static 'img/works/2.jpg' %}" class="gallery-zoom"><i class="fa fa-eye"></i></a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.gallery-item-wrapper -->
-                    <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper photography artwork">
-                        <div class="gallery-item">
-                            <div class="gallery-thumb">
-                                <img src= "{% static 'img/works/3.jpg' %}" class="img-responsive" alt="3rd gallery Thumb">
-                                <div class="image-overlay"></div>
-                                <a href="{% static 'img/works/3.jpg' %}" class="gallery-zoom"><i class="fa fa-eye"></i></a>
-                                
-                            </div>
-                    
-                        </div>
-                    </div>
-                    <!-- /.gallery-item-wrapper -->
-                    <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper creative nature">
-                        <div class="gallery-item">
-                            <div class="gallery-thumb">
-                                <img src="{% static 'img/works/4.jpg' %}" class="img-responsive" alt="4th gallery Thumb">
-                                <div class="image-overlay"></div>
-                                <a href="{% static 'img/works/4.jpg' %}" class="gallery-zoom"><i class="fa fa-eye"></i></a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.gallery-item-wrapper -->
-                    <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper nature">
-                        <div class="gallery-item">
-                            <div class="gallery-thumb">
-                                <img src="{% static 'img/works/5.jpg' %}" class="img-responsive" alt="5th gallery Thumb">
-                                <div class="image-overlay"></div>
-                                <a href="{% static 'img/works/5.jpg' %}" class="gallery-zoom"><i class="fa fa-eye"></i></a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.gallery-item-wrapper -->
-                    <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper artwork creative">
-                        <div class="gallery-item">
-                            <div class="gallery-thumb">
-                                <img src="{% static 'img/works/6.jpg' %}" class="img-responsive" alt="6th gallery Thumb">
-                                <div class="image-overlay"></div>
-                                <a href="{% static 'img/works/6.jpg' %}" class="gallery-zoom"><i class="fa fa-eye"></i></a>
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <!-- /.gallery-item-wrapper -->
-                    <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper nature outside">
-                        <div class="gallery-item">
-                            <div class="gallery-thumb">
-                                <img src="{% static 'img/works/2.jpg' %}"class="img-responsive" alt="2nd gallery Thumb">
-                                <div class="image-overlay"></div>
-                                <a href="{% static 'img/works/2.jpg' %}" class="gallery-zoom"><i class="fa fa-eye"></i></a>
-                                
-                            </div>
-                        </div>
-                    </div>
+    }
+
+.gallery-1 img{
+    float: left;
+    height: 60vh;
+    width: 30vw;
+    margin: 10%;
+    padding: 10%;
+}
+</style>
+
+<section id="content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="about-logo">
+                    <h3>Our <span class="color">Gallery</span></h3>
+
                 </div>
-                <!-- /.isotope-gallery-container -->
             </div>
-            <!-- /.row --> 
+        </div>
+
+    </div>
+</section>
+<!-- Start Gallery 1-2 -->
+<section class="gallery-1">
+    <div class="container">
+        <!-- /.gallery-filter -->
+
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{% static 'img/works/1.jpg' %}" class="img-responsive" alt="1st gallery Thumb">
+            </div>
+            <div class="col-md-4">
+               <img src="{% static 'img/works/2.jpg' %}" class="img-responsive" alt="2nd gallery Thumb">
+            </div>
+            <div class="col-md-4">
+               <img src="{% static 'img/works/3.jpg' %}" class="img-responsive" alt="3rd gallery Thumb">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{% static 'img/works/4.jpg' %}" class="img-responsive" alt="4th gallery Thumb">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'img/works/5.jpg' %}" class="img-responsive" alt="5th gallery Thumb">
+            </div>
+            <div class="col-md-4">
+               <img src="{% static 'img/works/6.jpg' %}" class="img-responsive" alt="6th gallery Thumb">
+            </div>
+        </div>
+
         <!-- /.container -->
-		</div>
-    </section>
-    <!--// End Gallery 1-2 -->  
-	</div>
-	
+    </div>
+</section>
+<!--// End Gallery 1-2 -->
+</div>
+
 {% endblock %}
