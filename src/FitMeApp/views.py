@@ -32,6 +32,7 @@ def home(request):
                         trainee = Trainee.objects.filter(trainer_ass=trainer)
                     except:
                         trainee = None
+                    print("---------------------------------")
                     data = {"trainee": trainee}
                     return render(request, "TrainerDashBoard.html", data)
                 else:
@@ -41,8 +42,6 @@ def home(request):
             else:
                 login(request, user)
                 try:
-                    from src.user.models import Trainee
-
                     task = Task.objects.filter(
                         person=Trainee.objects.get(user=request.user)
                     )
