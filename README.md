@@ -1,6 +1,9 @@
 # FitMe
 FitMe gym django based website 
 
+
+<img src="screenfit.png"/>
+
 ## Abstract
 
 If you have a gym membership or you're thinking about signing up for one, the most important thing to remember is that you have to use it. The advantages of gym workouts are that they provide several different ways to exercise, so going to the gym every day does not have to become boring and tedious.
