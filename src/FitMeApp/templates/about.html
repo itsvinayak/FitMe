@@ -1,246 +1,233 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		{% load static %}
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="{% static '/css/materialize.min.css' %}" media="screen,projection" />
-		<link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet" />
-		<link href="{% static '/css/jquery.fancybox.css' %}" rel="stylesheet"> 
-		<link href="{% static '/css/flexslider.css' %}" rel="stylesheet" /> 
-		<link href="{% static '/css/style.css' %}" rel="stylesheet" />
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		  <link rel="apple-touch-icon" sizes="180x180" href="{% static '/img/apple-touch-icon.png' %}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{% static '/img/favicon-32x32.png' %}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{% static '/img/favicon-16x16.png' %}">
-  <link rel="manifest" href="{% static '/img/site.webmanifest' %}">
-   <title>FitMe</title>
-	</head>
-	<body>
-		<div id="wrapper">
-			<header>
-				<div class="navbar navbar-default navbar-static-top">
-					<div class="container">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							</button>
-					  		<a class="navbar-brand" href="/"><i class="icon-info-blocks material-icons"></i>FitMe</a>
-						</div>
-						<div class="navbar-collapse collapse ">
-							<ul class="nav navbar-nav">
-								<li><a class="waves-effect waves-dark" href="/">Home</a></li> 
-				   				<li class="dropdown">
-									<a data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark">About Us
-										<ul class="dropdown-menu">							
-											<li><a class="waves-effect waves-dark" href="/about">Our Team</a></li>
-										</ul>
-									</a>
-								</li>
-								<li><a class="waves-effect waves-dark" href="/services">Services</a></li>
-								<li><a class="waves-effect waves-dark" href="/gallery">Gallery</a></li>
-								<li><a class="waves-effect waves-dark" href="/login">Login</a></li>							
-								<li><a class="waves-effect waves-dark" href="/contact">Contact</a></li>						
-							</ul>					
-						</div>				
-					</div>				
-				</div>	  
-			</header>	
-			<section id="inner-headline">
-				<div class="container">
+
+<head>
+	{% load static %}
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="{% static '/css/materialize.min.css' %}" media="screen,projection" />
+	<link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet" />
+	<link href="{% static '/css/jquery.fancybox.css' %}" rel="stylesheet">
+	<link href="{% static '/css/flexslider.css' %}" rel="stylesheet" />
+	<link href="{% static '/css/style.css' %}" rel="stylesheet" />
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static '/img/apple-touch-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static '/img/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static '/img/favicon-16x16.png' %}">
+	<link rel="manifest" href="{% static '/img/site.webmanifest' %}">
+	<title>FitMe</title>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header style="text-align: center; padding: 2%; letter-spacing: 10px;">
+		  <a href="/home">
+			  <h1> FitMe </h1>
+        	</a>
+		</header>
+		<section id="inner-headline">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12" style="padding: 2%;">
+						<h2 class="pageTitle">About Us</h2>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="content">
+			<div class="container">
+				<div class="about">
 					<div class="row">
-						<div class="col-lg-12">
-							<h2 class="pageTitle">About Us</h2>
+						<div class="col-md-7">
+							<div class="block-heading-two">
+								<h3><span>Why Choose Us?</span></h3>
+							</div>
+							<p>As a part of the movement, individuals and organisations can undertake various efforts
+								for their own health and well being as well as for the health and well being of fellow
+								Indians. Fitness does not mean only physical fitness, but also means mental strength and
+								emotional equanimity.<br>We are here taking initiative to work for the people of
+								India.<br />We beileve everyone needs guidance in their life for achieving the GOAL.</p>
+						</div>
+						<div class="col-md-5" style="text-align: right; position: relative; right: 0;" >
+							<div class="about home-about">
+								<div class="block-heading-two">
+									<h3><span>Features</span></h3>
+								</div>
+								<div class="tab-section">
+									<div class="s12">
+										<ul class="tabs">
+											<li class="tab col s4"><a href="#test1" class="waves-effect waves-dark">
+													Quizzes</a></li>
+											<li class="tab col s4"><a class="waves-effect waves-dark active"
+													href="#test2">Challenge</a></li>
+											<li class="tab col s4"><a href="#test3"
+													class="waves-effect waves-dark">Videos</a></li>
+										</ul>
+									</div>
+									<div id="test1" class="col s12 container"> The more you know about own health and
+										fitness, the more successful you will be during your diet.</div>
+									<div id="test2" class="col s12 container">Fitness Challenges are great. It is
+										designed to work every major muscle group in your body everyday.</div>
+									<div id="test3" class="col s12 container">Videos is proof positive that you donate
+										need to hit the gym or have a tone of time or space for a truely killer workout.
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-			<section id="content">
-				<div class="container">						
-					<div class="about">
-						<div class="row">
-							<div class="col-md-4">
-								<div class="block-heading-two">
-									<h3><span>Why Choose Us?</span></h3>
-								</div>
-								<p>As a part of the movement, individuals and organisations can undertake various efforts for their own health and well being as well as for the health and well being of fellow Indians. Fitness does not mean only physical fitness, but also means mental strength and emotional equanimity.<br>We are here taking initiative to work for the people of India.<br/>We beileve everyone needs guidance in their life for achieving the GOAL.</p>
-							</div>
-							<div class="about home-about">	
-								<div class="container">
-									<div class="row">
-										<div class="col-md-4">
-											<div class="block-heading-two">
-												<h3><span>Features</span></h3>
-											</div>
-											<div class="tab-section">
-												<div class="s12">
-													<ul class="tabs">
-														<li class="tab col s4"><a href="#test1" class="waves-effect waves-dark"> Quizzes</a></li>
-														<li class="tab col s4"><a class="waves-effect waves-dark active" href="#test2">Challenge</a></li>
-														<li class="tab col s4"><a href="#test3" class="waves-effect waves-dark">Videos</a></li>
-													</ul>
-												</div>
-												<div id="test1" class="col s12 container"> The more you know about own health and fitness, the more successful you will be during your diet.</div>
-												<div id="test2" class="col s12 container">Fitness Challenges are great. It is designed to work every major muscle group in your body everyday.</div>
-												<div id="test3" class="col s12 container">Videos is proof positive that you donate need to hit the gym or have a tone of time or space for a truely killer workout.</div>
-											</div>
-										</div>
-									</div>
-									<br>
-								</div>
-							</div>
-							<br>
-							<div class="block-heading-six">
-								<h4 class="bg-color">Our Team</h4>
-							</div>
-							<br>
-							<div class="team-six">
-								<div class="row">
-									<div class="col-md-3 col-sm-6">
-										<div class="team-member">
-											<img class="img-responsive" src="{% static '/img/banshica1.png' %}" alt="">
-											<h4>Banshica A Singh</h4>
-											<span class="deg">Team Leader</span> 
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<div class="team-member">
-											<img class="img-responsive" src="{% static '/img/.jpg' %}" alt="">
-											<h4>Adarsh Jha</h4>
-											<span class="deg">Team Member</span> 
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<div class="team-member">
-											<img class="img-responsive" src="{% static '/img/.jpg' %}" alt="">
-											<h4>Arti</h4>
-											<span class="deg">Team Member</span> 
-										</div>
-									</div>
-									<div class="col-md-3 col-sm-6">
-										<div class="team-member">
-											<img class="img-responsive" src="{% static '/img/.jpg' %}" alt="">
-											<h4>Siddharth Verma</h4>
-											<span class="deg">Team Member</span>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-3 col-sm-6">
-											<div class="team-member">
-												<img class="img-responsive" src="{% static '/img/ajay.jpg' %}" alt="">
-												<h4>Ajay Yadav</h4>
-												<span class="deg">Team Member</span> 
-											</div>
-										</div>
-									<div class="row">
-										<div class="col-md-3 col-sm-6">
-											<div class="team-member">
-												<img class="img-responsive" src="{% static '/img/kas.jpg' %}" alt="">
-												<h4>Kaustubh Sandhya </h4>
-												<span class="deg">Team Member</span> 
-											</div>
-										</div>
-									</div>
-									</div>
-							
-							<!-- Our team ends -->
-						  
-							
-						</div>
-										
-					</div>
-							</div></div></div></section>
-	
-	
-	  <footer>
-	  <div class="container">
-		<div class="row">
-		  <div class="col-sm-3">
-			<div class="widget">
-			  <h5 class="widgetheading">Our Contact</h5>
-			  <address>
-			   <strong>Invincibles 5</strong><br>
-			  G.L.A University, Mathura ,Uttar Pradesh</address>
-			  <p>
-				<i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
-				<i class="icon-envelope-alt"></i> kaustubh.sanadhya_csd17@gla.ac.in
-			  </p>
 			</div>
-		  </div>
-		  <div class="col-sm-3">
-			  <div class="widget">
-			  <h5 class="widgetheading">Features</h5>
-			  <ul class="link-list">
-				<li>Trainers</li>
-				<li>Videos</li>
-				<li>Fitness Challenges</li>
-				<li>Free Check-up</li>
-				<li>BMI Calculator</li>
-			  </ul>
-			</div>
-		  </div>
-		  <div class="col-sm-3">
-			<div class="widget">
-			  <h5 class="widgetheading">Our Team</h5>
-			  <ul class="link-list">
-				<li>Ajay Yadav</li>
-				<li>Kaustubh Sanadhya</li>
-				<li>Arti</li>
-				<li>Dharm Singh</li>
-	
-			  </ul>
-			</div>
-		  </div>
-		  <div class="col-sm-3">
-			<div class="widget">
-			  <h5 class="widgetheading">Log-in / Sign-up</h5>
-			  <ul class="link-list">
-				
-				<li><a class="waves-effect waves-dark" href="/register">As A Trainer</a></li>
-				<li><a class="waves-effect waves-dark" href="/register">As A Trainee</a></li>
-			  </ul>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	   <div id="sub-footer">
+		</section>
+
 		<div class="container">
-		  <div class="row">
-			<div class="col-lg-6">
-			  <div class="copyright">
-				<p>
-				  <span>Made By Invincibles 5</span>
-				</p>
-			  </div>
+			<div class="block-heading-six row">
+				<h4 class="bg-color">Our Team</h4>
 			</div>
-			<div class="col-lg-6">
-			  <ul class="social-network">
-				<li><a class="waves-effect waves-dark" href="www.Facebook,com" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-				<li><a class="waves-effect waves-dark" href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-				<li><a class="waves-effect waves-dark" href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-				<li><a class="waves-effect waves-dark" href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-				<li><a class="waves-effect waves-dark" href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-			  </ul>
+			<br />
+			<br />
+			<div class="team-six">
+				<div class="row" style="text-align: center;">
+					<div class="col-md-3 col-sm-6">
+						<div class="team-member">
+							<img class="img-responsive" width="150" height="200" src="{% static '/img/p1.jpeg' %}"
+								alt="">
+							<h4>CEO, Pavan Sharma</h4>
+							<span class="deg">Team Leader</span>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<div class="team-member">
+							<img class="img-responsive" width="150" height="200" src="{% static '/img/p2.jpeg' %}"
+								alt="">
+							<h4>CTO, Vimal Sahu</h4>
+							<span class="deg">Team Member</span>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6">
+						<div class="team-member">
+							<img class="img-responsive" width="150" height="200" src="{% static '/img/p3.jpeg' %}"
+								alt="">
+							<h4>vice CTO, Shuvam Sharma</h4>
+							<span class="deg">Team Member</span>
+						</div>
+					</div>
+						<div class="col-md-3 col-sm-6">
+							<div class="team-member">
+								<img class="img-responsive" width="150" height="200" src="{% static '/img/p4.jpeg' %}"
+									alt="">
+								<h4>Tester, Aadil Qureshi</h4>
+								<span class="deg">Team Member</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Our team ends -->
+
+
 			</div>
-		  </div>
+
 		</div>
-	  </div>
-	  </footer>
+	</div>
+	</div>
+	</div>
+	</section>
+
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="widget">
+						<h5 class="widgetheading">Our Contact</h5>
+						<address>
+							<strong>Hindustan college of science and technology</strong><br>
+							Farah ( Mathura )
+							</address>
+						<p>
+							<i class="icon-phone"></i> +91 75000 93333 <br>
+							<i class="icon-envelope-alt"></i> pavan@hindustan.com
+						</p>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="widget">
+						<h5 class="widgetheading">Features</h5>
+						<ul class="link-list">
+							<li>Trainers</li>
+							<li>Videos</li>
+							<li>Fitness Challenges</li>
+							<li>Free Check-up</li>
+							<li>BMI Calculator</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="widget">
+						<h5 class="widgetheading">Our Team</h5>
+						<ul class="link-list">
+							<li>Pavan Sharma</li>
+							<li>Vimal Sahu</li>
+							<li>Shuvam Sharma</li>
+							<li>Aadil Qureshi</li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="widget">
+						<h5 class="widgetheading">Log-in / Sign-up</h5>
+						<ul class="link-list">
+
+							<li><a class="waves-effect waves-dark" href="/home">As A Trainer</a></li>
+							<li><a class="waves-effect waves-dark" href="/home">As A Trainee</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="sub-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="copyright">
+							<p>
+								<span>Made By Invincibles 5</span>
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<ul class="social-network">
+							<li><a class="waves-effect waves-dark" href="www.Facebook,com" data-placement="top"
+									title="Facebook"><i class="fa fa-facebook"></i></a></li>
+							<li><a class="waves-effect waves-dark" href="#" data-placement="top" title="Twitter"><i
+										class="fa fa-twitter"></i></a></li>
+							<li><a class="waves-effect waves-dark" href="#" data-placement="top" title="Linkedin"><i
+										class="fa fa-linkedin"></i></a></li>
+							<li><a class="waves-effect waves-dark" href="#" data-placement="top" title="Pinterest"><i
+										class="fa fa-pinterest"></i></a></li>
+							<li><a class="waves-effect waves-dark" href="#" data-placement="top" title="Google plus"><i
+										class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 	</div>
 	<a href="#" class="scrollup waves-effect waves-dark"><i class="fa fa-angle-up active"></i></a>
-		<script src="{% static '/js/jquery.js' %}"></script>
-		<script src="{% static '/js/jquery.easing.1.3.js' %}"></script>
-		<script src="{% static '/js/materialize.min.js' %}"></script>
-		<script src="{% static '/js/bootstrap.min.js' %}"></script>
-		<script src="{% static '/js/jquery.fancybox.pack.js' %}"></script>
-		<script src="{% static '/js/jquery.fancybox-media.js' %}"></script>  
-		<script src="{% static '/js/jquery.flexslider.js' %}"></script>
-		<script src="{% static '/js/animate.js' %}"></script>
-		<script src="{% static '/js/modernizr.custom.js' %}"></script>
-		<script src="{% static '/js/jquery.isotope.min.js' %}"></script>
-		<script src="{% static '/js/jquery.magnific-popup.min.js' %}"></script>
-		<script src="{% static '/js/animate.js' %}"></script> 
-		<script src="{% static '/js/custom.js' %}"></script>
-	</body>
+	<script src="{% static '/js/jquery.js' %}"></script>
+	<script src="{% static '/js/jquery.easing.1.3.js' %}"></script>
+	<script src="{% static '/js/materialize.min.js' %}"></script>
+	<script src="{% static '/js/bootstrap.min.js' %}"></script>
+	<script src="{% static '/js/jquery.fancybox.pack.js' %}"></script>
+	<script src="{% static '/js/jquery.fancybox-media.js' %}"></script>
+	<script src="{% static '/js/jquery.flexslider.js' %}"></script>
+	<script src="{% static '/js/animate.js' %}"></script>
+	<script src="{% static '/js/modernizr.custom.js' %}"></script>
+	<script src="{% static '/js/jquery.isotope.min.js' %}"></script>
+	<script src="{% static '/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static '/js/animate.js' %}"></script>
+	<script src="{% static '/js/custom.js' %}"></script>
+</body>
+
 </html>
